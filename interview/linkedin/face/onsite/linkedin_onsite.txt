@@ -1,0 +1,151 @@
+1.LC716(LC155相反!) 第二次
+面试官没有说必须o(1)。我是用doubly linkedlist加treemap做的。
+
+
+2.LC322
+
+
+3.找出字符串中所有的回文subsequence not substring。（LC516变型，问一下为啥516LC过不了！！)
+递推公式稍有改变。但是因为要找所有解需要用dfs而不是dp，不过可以cache已经计算过的结果来优化
+暴力解法很简单，找所有的subsequence，然后每个检查一下是不是回文。O(2^n * n)。这题难在优化上。
+
+
+当时讨论的解法就是，看两头的字母，如果不相同，这两个字母肯定不可能同时存在于最后的某个答案中。所以要么去掉左边字符，要么去掉右边字符，继续搜索。但如果两边字符相同，还要有个recursion branch是去掉两边字符，用中间部分继续搜。最后在把得到的三个list合并，作为当前字符串的答案list返回。这里可以cache已经搜过的字符串，因为这里sub problem 有很多重复。但是这个解看似可以cache,但是每次在merge答案的时候还是有时间开销。worst case个人觉得和暴力解法相同。
+
+4.LC339(phone里面也有！超重点)
+
+
+5.LC50
+
+6.LC68
+
+7.LC158
+
+8.LC366 又说了个有向图检测环（第二次）
+不同的是要求多叉树（这个也讨论一下！）
+
+9.LC272
+
+10.LC39
+
+11. 第一题 lc reverse string 那道题，就是单词不reverse 但是顺序reverse 要求inplace。
+http://www.geeksforgeeks.org/reverse-words-in-a-given-string/
+
+12.LC56
+有 add 和getcoverlength 两个method。要求不是以前的那种根据call frequency写而是假定两个method的频率是随机的。要求达到时间复杂度最佳。。最先用了直接add 到list 然后call get 的时候sort 的方法。然后讨论了很久最后说用treeSet 在add 里面，这样总时间复杂度更小。
+
+add 和get的时间复杂度都是最优，也就是说在100次操作里面add get出现的几率是一样的。可以按照add 50 get 50 来计算。现在就要在这样的情况下让总的时间最小。自然treeset就是最好的
+
+13.LC200 number of islands
+
+14.get top k frequency words。
+输入就是一个word 的list，和数字K，求出出现频率最高的K个单词。
+
+16.shuffle一个array，使得output的结果和input的结果完全不一样（相同元素在不同位置）
+
+17.edit distance to palindrome，给一个string，变成palindrome的edit distance是多少
+解法就是 把这个string反过来，比如abcb,变成bcba，然后再找2个string的edit distance
+
+18.LC256(第二次)
+follow up是输出所有结果
+
+19.LC113(第二次)
+但是只需要输出一条path
+
+20.
+LC698（第二次）
+
+21.
+LC210
+
+22.
+http://tinyurl.com/ybhgzlos 
+flatten 4-direction doubly linked list.(第二次)
+就是有上下左右四个方向的子node，每个子node也可以有上下左右四个方向的子node，要求把这玩意儿转换成正常的doubly linkedlist，O(1) space，所以不能recursive，因为有stack space。
+
+23.
+k largest element +  多维数组求和
+
+24.
+LC349
+
+25.
+LC235(第二次)
+with parent pointers, O(1) space cost.
+
+26.
+Use array to design a circular queue
+http://www.geeksforgeeks.org/circular-queue-set-1-introduction-array-implementation/
+
+27.
+一道超简单的graph，大意是假设有了O(1)的findNeighbor（），怎么实现找朋友，找朋友的朋友和找3度朋友的功能。分析复杂度
+拓扑排序？问问！！
+28.
+LC76（第二次）
+
+29.
+给一个set of integers，给一个 target number，要求找出 所有的subset，每个set里面的数字之和等于 target number.
+http://www.geeksforgeeks.org/dynamic-programming-subset-sum-problem/ （问问！！）
+
+30.
+LC205(phone也有)
+
+31.
+LC277（第二次）
+不过他稍微改了下， 用了个2d array来代替 boolean knows(a, b)函数
+
+32.
+LC12/LC13
+ABC小哥说再写个验证罗马数字是否valid function
+
+33.
+LC100
+
+34.
+LC141、142
+
+35.
+给几个point的坐标（X,Y），给一个target的坐标，找出离target最近的k个点。
+
+36.
+LC156
+
+37.
+LC373
+
+38.
+水塘抽样一个，利口伞霸而，follow up, 水塘抽样多个。注意面试官要求用概率论证明
+维基百科证明，再问问
+https://zh.wikipedia.org/wiki/%E6%B0%B4%E5%A1%98%E6%8A%BD%E6%A8%A3
+
+39.
+给一个string list 和 k, 要求打印每个list的元素，按照每行k个元素, 要求不用额外空间
+和LC68差不多
+问问
+
+40.
+给一个二维矩阵，问从左上角走到右下角总共有多少种走法
+问问
+
+41.
+LC34
+
+42.
+LC272
+再想想log(n)时间和空间的方法！！
+
+43.
+LC716
+
+44.
+LC160
+follow up 可能有环
+有环的话先把环断开，然后用无环的解法。
+
+45.
+LC149(phone里面有)
+Max Points on a Line
+
+
+
+

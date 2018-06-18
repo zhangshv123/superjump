@@ -1,0 +1,96 @@
+Culture fit：
+他家这个很有意思，会有两轮。
+通过只有一个技巧， 他家很有前景，你很喜欢他家的服务，他家的服务能让人更好的感受local的文化。
+常见问题多练习，参考附录题库。
+
+Backgroud:
+这个也没啥，自己的project和经验要准备好，常见问题多看看。
+
+
+他家的面试难度，主要在coding，其他轮感觉还ok。lz最后fail在了design。 coding 倒是遇到两新题，都解完了，coding的feedback 也不错。
+也没啥可惜的了。lz尽力了。
+
+=============================题库了=============================
+From Glassdoor：
+1.      Given a list ofstrings, return all pairs of strings that can make a palindrome.  高频
+2.      TextJustification, Alien Dictionary  
+3.      How fast canyou parse strings?  
+The problem I was giveninvolved a bunch of ugly string data parsing and using a heuristic to modifythe data in a certain way. It was an easy problem, but they wanted a fullyworking solution within the short time limit. I couldn't finish it in time.Pick a language that has as little verbosity as possible and don't botherengaging with the interviewer because they don't care to speak with you. Theyjust want to see how fast you can code.
+4.       Write a CSV parser.  Parse an escaped string into csvformat. 高频
+5.       Return the coins combination with the minimum number ofcoins.Time complexity O(MN), where M is the target value and N is the number ofdistinct coins. Space complexity O(M).  
+6.       I had a phone screen question involving examination ofsubsets.  
+7.       Check top 10 questions on leetcode  
+8.       Implement a circular buffer using an array.
+http://stackoverflow.com/questions/590069/how-would-you-code-an-efficient-circular-buffer-in-java-or-c-sharp
+9.      Provide a set of positiveintegers (an array of integers). Each integer represent number of nights userrequest on Airbnb.com. If you are a host, you need to design and implement analgorithm to find out the maximum number a nights you can accommodate. Theconstrain is that you have to reserve at least one day between each request, sothat you have time to clean the room.
+
+Example:
+1) Input: [1, 2, 3]===&gt; output: 4, because you will pick 1 and 3
+2) input: [5,1, 2, 6] ===&gt; output: 11, because you will pick 5 and 6. visit 1point3acres.com for more.
+3) input: [5,1, 2, 6, 20, 2] ===&gt; output: 27, because you will pick 5, 2, 20  
+10.  Given a set of numbersin an array which represent number of consecutive days of AirBnB reservationrequested, as a host, pick the sequence which maximizes the number of days ofoccupancy, at the same time, leaving atleast 1 day gap in between bookings forcleaning. Problem reduces to finding max-sum of non-consecutive array elements.
+. 
+// [5, 1, 1, 5] => 10
+The above array would represent an examplebooking period as follows -
+// Dec 1 - 5. 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+// Dec 5 - 6
+// Dec 6 - 7
+// Dec 7 – 12
+The answer would be to pick dec 1-5 (5 days)and then pick dec 7-12 for a total of 10 days of occupancy, at the same time,leaving atleast 1 day gap for cleaning between reservations.. 
+. ,
+Similarly,
+// [3, 6, 4] => 7
+// [4, 10, 3, 1, 5] => 15  
+11.   Boggle implementation  (word search I, II)
+12.   Given a dictionary, and a matrix of letters, find all thewords in the matrix that are in the dictionary. (Going across, down ordiagonally)  
+
+What SQL columns you should index and how would you change     the indexing in different lookup scenarios? 
+What can you teach me in a few minutes?  
+find all the     combinations of a string in lowercase and uppercase. For example, string     "ab" -&gt; "ab", "Ab", "aB",     "AB". So, you will have 2^n (n = number of chars in the string)     output strings. The goal is for you to test each of these string and see     if it match a hidden string。
+Implement a     simple regex parser which, given a string and a pattern, returns a booleanindicating whether the     input matches the pattern. By simple, we mean that the regex can only     contain special character: * (star), . (dot), + (plus). The star means     what you'd expect, that there will be zero or more of previous character     in that place in the pattern. The dot means any character for that     position. The plus means one or more of previous character in that place     in the pattern.  
+Tell me about why you want to work here.  
+Find all words from a dictionary that are x edit     distance away.  
+Store a set of sudden-death tournament results in a     compact format (eg. a bit array) and a set of predicted match results     (also in a bit array). Score the predictions, giving one point per     correctly guessed match, without unpacking the bit array into a more     convenient format (ie. you have to traverse the tree in-place).  
+20.   Lots of treequestions (implement a BST, score sudden-death tournament results with a minimalbinary tree data structure, encode an alien dictionaryusing a tree and then produce a dictionary using topological traversal), and a"rebuild Twitter from the ground up" scaling/architecture question.
+. ,
+Describe what happens when you enter a url in the web     browser  . 
+Sort a list of numbers in which each number is at a     distance k from its actual position  -google 1point3acres
+You have a plain with lots of rectangles on it, find out     how many of them intersect  . visit 1point3acres.com for more.
+Binary search tree  
+From MITBBS
+1. http://www.mitbbs.com/article_t/JobHunting/32309663.html
+regexmatch, slightly complicated version of http://leetcode.com/2011/09/regular-expression-matching.html
+find maxium square inside a sqaure, similar tohttp://stackoverflow.com/questio ... argest-square-block
+. 
+edit distance
+2.       http://www.mitbbs.com/article_t/JobHunting/32864407.html
+3.       http://www.mitbbs.com/article_t/JobHunting/32779809.html
+alien dictionary，我还被问了两轮这题。。。
+还有meetingroom2
+4.       http://www.mitbbs.com/article_t/JobHunting/33129803.html
+电面二话不说上来就做题
+一个餐馆，菜单上各种食物价格如下. 
+A， $ X.XX
+B， $ Y.YY
+C， $ Z.ZZ-google 1point3acres
+D,  $ ...
+
+问现在一个人有一定数额的钱，比如 $MM.MM，如何点菜才能把钱全部花完？. 
+面试官要求列出所有可能的组合
+我用了recursive的方法，写出来了
+但是在比较 floatnumber的时候，细节没有处理好. 
+直接比较 X.XX ==Y.YY 会出现错误，所以必须要做差来比较
+经面试官提醒改了过来
+然后周一被通知挂了
+
+这题除了用recursive方法，有更好的解法吗？DP?
+From 一亩三分地
+http://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=145&sortid=311&searchoption[3046][value]=37&searchoption[3046][type]=radio&sortid=311&filter=sortid&page=1
+1.      http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=176102&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D37%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+RT，白人面试官，感觉非常冷，啥都不问，上来直接做题。题目是2D iterator，加一个remove。我10多min就写完了，但是面试官说能run，但是design不太好，让我换一种方法。提示利用iterator的remove方法，我对iterator的remove方法不是很熟，我说能不能查api，他说可以。
+然后我就查api，然后lz对api里说的看不大懂，然后面试官帮忙run了一个case，然后我懂了，然后就改，然后又出了几个很傻逼的bug，最后面试官说再给你1min调，然后lz终于调出来。然后面试官说great。（感觉安慰我）。然后我就问问题，但是很傻逼的是，我问的问题和那个面试官做的东西不一样，面试官不懂怎么回答，然后我就让他讲了一下他的工作，然后我又问了2个。然后就Bye了。
+2.      http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=165457&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D37%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+首先是三个技术面：
+1） AlienDictionary
+2） Text Justification
+3） 写echoTCP client， 向面试官的server发请求， 读回数据。地里比较少人说这种， 我来详细说一下， 情境是这样的： 想象你开车， 踩下油门，车会加速，放开油门，车会减速。 client向server发的请求有以下2种： （a）STATUS --表示查询现在车的速度和踩下踏板的压力； （b）THROTTLE 50.1 --- 这条指令是“THROTTLE” 加上一个数字， 表示我现在将踩油门的压力调为50.1

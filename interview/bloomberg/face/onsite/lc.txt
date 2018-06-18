@@ -1,0 +1,17 @@
+lc234
+lc116:http://tinyurl.com/y94asdvg
+
+lc445
+lc56:http://tinyurl.com/y94asdvg
+
+lc273
+http://tinyurl.com/y96nzzpc
+
+lc 654
+只不过是把build max tree, 变成min tree。给一个数组，把它变成二叉树，该二叉树中序遍历结果和数组一样，同时还要保证这是一个minstack
+
+lc143
+
+lc282
+
+lc98

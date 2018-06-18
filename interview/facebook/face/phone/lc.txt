@@ -1,0 +1,61 @@
+LC17(出现第二次)
+http://tinyurl.com/y96nzzpc
+有点区别是小哥并没有说是电话九宫格，而是给一个List of List of letter，所以就不用考虑0这样的无效输入，一样的解法。
+
+LC33
+
+LC38
+
+LC114 
+https://www.youtube.com/watch?v=Dte6EF1nHNo
+http://tinyurl.com/yasc9sxo
+
+LC124
+
+LC173
+
+LC259
+
+LC273(第二次)follow up是负数咋办(就判断一下，加个minus,多一个corner case， INT_MIN)
+
+LC314
+http://tinyurl.com/y9nfuexk
+
+lc234
+lc116:http://tinyurl.com/y94asdvg
+
+lc252/253 (出现2次)
+一种是start/end数组分别排序然后遍历一次的解法，一种是排序一次然后最小堆的解法。最后用最小堆解法写完了。
+
+lc445
+lc56:http://tinyurl.com/y94asdvg
+LC125比原题更简单一点，判断回文的时候只考虑字母，数字空格和其他字符都不考虑												http://tinyurl.com/y768zjnu
+"LC350 数组已经sorted了，先用的two pointer写的，问了时空复杂度，test cases
+   follow up: 如果两个数组中有一个数组特别长，怎么办，答 binary search，问了具体怎么用binary search来实现，然后要求写binary search 找lower bound"												
+LC原题，二进制相加。直接秒了，然后被要求分析了时间复杂度以及C++里面string library的实现和复杂度							http://tinyurl.com/ya2vtyy5
+LC31												
+LC301. Remove Invalid Parentheses的简单版，题目一样，但只需要输出一种结果就行												http://tinyurl.com/yaa65z3r
+LC76	http://tinyurl.com/ybb72rba
+LC98												
+LC277												
+LC121												
+LC123																							
+LC283	Follow up:follow up时间复杂度，交换次数													
+LC200	
+
+LC311
+简化了下，直接1行乘以一列，问怎么建立数据结构存储数据。这题之前没写过，我的解决方案是：建立链表，存储那些值不为0的数据及其index。然后双指针遍历两条链表，只有当index相同时，才相乘。
+											
+LC325												
+lc39												
+lc155												
+LC285												
+LC56												
+LC75												
+LC43
+LC560												
+LC572	
+
+LC76	
+LC621
+LC640										

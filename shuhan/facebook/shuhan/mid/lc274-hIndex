@@ -1,0 +1,7 @@
+class Solution(object):
+    def hIndex(self, citations):
+    统计下标i小于引用次数c的文章篇数即可。
+        for i, c in enumerate(sorted(citations, reverse = True)):
+            if i >= c:
+                return i
+        return len(citations)

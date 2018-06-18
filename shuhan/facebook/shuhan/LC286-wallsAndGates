@@ -1,0 +1,19 @@
+class Solution(object):
+    def wallsAndGates(self, rooms):
+    和num of island基本一样
+        if not rooms or len(rooms) == 0 or len(rooms[0]) == 0:
+            return 
+        row,col = len(rooms),len(rooms[0])
+        for i in range(row):
+            for j in range(col):
+                if rooms[i][j] == 0:
+                    self.helper(i,j,rooms,0)
+    
+    def helper(self,i,j,rooms,d):
+        if i < 0 or i >= len(rooms) or j < 0 or j >= len(rooms[0]) or rooms[i][j] < d:
+            return
+        rooms[i][j] = d
+        self.helper(i-1,j,rooms,d+1)
+        self.helper(i,j-1,rooms,d+1)
+        self.helper(i+1,j,rooms,d+1)
+        self.helper(i,j+1,rooms,d+1)

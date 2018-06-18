@@ -1,0 +1,11 @@
+1.3sum
+
+2.删invalid括号
+LC301(Remove Invalid Parentheses)
+
+3.move zeroes
+
+4.给一个指定点和一堆点组成的数组，找到距离指定点最近的K个点（这题是FB高频题，周围有2+个人被问到过）。
+
+5.LC277 find the celebrity
+

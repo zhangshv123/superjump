@@ -1,0 +1,18 @@
+class Solution(object):
+    def simplifyPath(self, path):
+        """
+        :type path: str
+        :rtype: str
+        """
+        stack = []
+        path = path.split("/")
+        set = ["..",".",""]
+        for dir in path:
+            if dir not in set:
+                stack.append(dir)
+            elif dir == ".." and stack:
+                stack.pop()
+        res = ""
+        for dir in stack:
+            res += "/"+ dir
+        return "/" if not res else res

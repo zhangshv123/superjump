@@ -1,0 +1,53 @@
+1.max stack with popMax(LC155相反!) 第二次
+面试官没有说必须o(1)。我是用doubly linkedlist加treemap做的。
+
+
+2.LC322
+
+
+3.找出字符串中所有的回文subsequence not substring。（LC516变型，问一下为啥516LC过不了！！)
+递推公式稍有改变。但是因为要找所有解需要用dfs而不是dp，不过可以cache已经计算过的结果来优化
+暴力解法很简单，找所有的subsequence，然后每个检查一下是不是回文。O(2^n * n)。这题难在优化上。
+
+
+当时讨论的解法就是，看两头的字母，如果不相同，这两个字母肯定不可能同时存在于最后的某个答案中。所以要么去掉左边字符，要么去掉右边字符，继续搜索。但如果两边字符相同，还要有个recursion branch是去掉两边字符，用中间部分继续搜。最后在把得到的三个list合并，作为当前字符串的答案list返回。这里可以cache已经搜过的字符串，因为这里sub problem 有很多重复。但是这个解看似可以cache,但是每次在merge答案的时候还是有时间开销。worst case个人觉得和暴力解法相同。
+
+4.LC339
+
+
+5.LC50
+
+6.LC68
+
+7.LC158
+
+8.LC366 又说了个有向图检测环
+
+9.LC272
+
+
+10.combination sum
+
+11. 第一题 lc reverse string 那道题，就是单词不reverse 但是顺序reverse 要求inplace。
+
+12.LC56(问一下！！)
+有 add 和getcoverlength 两个method。要求不是以前的那种根据call frequency写而是假定两个method的频率是随机的。要求达到时间复杂度最佳。。最先用了直接add 到list 然后call get 的时候sort 的方法。然后讨论了很久最后说用treeSet 在add 里面，这样总时间复杂度更小。
+
+add 和get的时间复杂度都是最优，也就是说在100次操作里面add get出现的几率是一样的。可以按照add 50 get 50 来计算。现在就要在这样的情况下让总的时间最小。自然treeset就是最好的
+
+13.LC200
+
+14.get top k frequency words。
+输入就是一个word 的list，和数字K，求出出现频率最高的K个单词。
+
+15.LC272
+
+16.shuffle一个array，使得output的结果和input的结果完全不一样（相同元素在不同位置）
+
+17.edit distance to palindrome，给一个string，变成palindrome的edit distance是多少
+
+18.LC256
+
+19.LC113
+但是只需要输出一条path
+

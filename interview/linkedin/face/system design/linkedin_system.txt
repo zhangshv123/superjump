@@ -1,0 +1,102 @@
+1.linkedin广告系统
+每个user有一些attributes. 比如什么专业，什么level。每个广告有其针对的attribute。比如广告a针对level 4以上的software engineer。设计系统当user登陆时根据他的attributes推送相应广告。基本就是一个inverted index就搞定了，然后又聊了一些优化和follow up。
+
+2.system design. tiny url.(第二次)
+http://tinyurl.com/ha7dzbb
+
+3. Design 生产者消费者模型的变种，要熟悉条件变量，回答的不好，忘记pthread_cond_wait()内部的一些机制了，讨论许久才想起来，
+（问问！！）
+
+4.Design，Key Value Store，限制是底层的文件系统是append only/文件系统是类似 HDFS 一样的(第二次)
+（问问！！）
+
+5.Design，top k shared article，按照top k XXX 标准做法回答就好了
+https://soulmachine.gitbooks.io/system-design/content/cn/bigdata/heavy-hitters.html
+ 
+
+7.Design Monitoring System，比如每台机器的CPU pct，要求支持UI 和alert
+答案：
+
+1.先问这个minior system是在哪里用到？(S)
+如果是wechat/whats app就是监视上面server和service的情况
+server是物理的机器
+service是上面跑的process
+
+2.问会监控什么？
+如果1000个机器
+QPS《100 不用考虑  QPS》1000才需要考虑scale
+
+
+8.设计系统查询A和B 是否为1度好友，2度好友和3度好友
+变形：
+设计领英get distance的API（求1，2，3度联系人）
+
+9.top 500 exception in 1 hr
+聊了很多如何节省空间方面的东西。基本按照标准流程走了一次。follow up 超多问题。
+
+10.题目是统计过去5min, 1h, 24h的前k个分享最多的资源。这一轮我理解应该有一些鸭梨测试的意思，因为大哥一直不断地打岔打击，中间还经常说类似“我说，你最起码说出点东西让我能往面试报告上写了交差吧？”的话
+从算法上其实基本就是桶排序，例如以20s为一个桶。在统计上我试着讲我在板上看到别的大神说过的“lossy counting”和“sticky sampling”，均被大哥否掉了。到这里他直接坐不住了到白板面前说“行了你说了这么多没用的快没时间了，是有一部分是对的。让我给你节省点时间，是这样这样这样。。你趁还有时间赶紧讲讲系统架构吧。”我就试着把load balancer， master-slave这些东西开始讲，他慢慢地从之前的心不在焉变得稍微有点认真听了。但是我从他第一次打击我就知道今天这些面试肯定没戏了，倒是越来越放松，就把知道的东西都摆出来，尽力而为就算了。
+
+11.top K exception
+
+12.第一轮经理聊天，从简历最近项目一个很小的点开始问，一直拓展到项目的每一个细节。然后就是一些常见的问题。
+
+13.设计一个日志系统，储存其他服务生成的日志，支持关键字搜索。一直问日志应该怎么传输，我就把知道的pull/push一顿说。不过完全没get到问点在哪里。求地里的朋友解答。
+
+14.
+top N exceptions in recent K time, 基本是frequency estimation of streaming data，然后再讨论下如果要处理N台机器的log怎么做分布式。
+
+15.
+设计亚麻购物界面
+
+16.
+tinyurl -> 老題目了，先從url <-> short url 轉換的演算法討論起。然後在討論如何scale，用哪種database比較適合等等。
+
+17.
+KV storage
+磁带文件系统
+
+18.
+设计一个猜单词，救小人儿的游戏
+问UI怎么设计
+具体的算法怎么样
+有什么API
+如何做到scalable，怎么样fault tolerant
+
+19.
+设计，统计过去五分钟， 一个小时， 一天或着一周里， 出现次数最多的Top k个shared links。
+我找到了一下的两个讨论
+https://massivetechinterview.blogspot.nl/2015/06/algorithm-how-to-count-number-of.html
+http://www.jiuzhang.com/qa/109/
+
+不过，我为了准备系统面试，买了这个课程
+Grokking the System Design Interview 
+https://www.educative.io/collection/5668639101419520/5649050225344512
+我的感觉，这个课程比某章的系统设计讲的细致，我自己读了很多很多遍，感觉每读一遍都有新的收获。某章的系统设计课介绍背景知识比较好，具体的设计题目讲的不够细致
+我的最终答案是用kafka + samza + rate limiter (rolling window), database可以用Redis
+
+变形：
+LinkedIn上的用户会用到很多shared links，然后要求设计个service来统计过去五分钟， 一个小时， 一天或着一周里， 出现次数最多的Top k个shared links。
+
+20.
+host manager， 主要是讲各种经验，然后给了一个小场景来讲一下怎么lead team来做这个功能
+
+21.
+设计blacklistIP，和interviewer在做法上陷入分歧，无法认同interviewer建议的design。下来之后查阅资料和实际工业中design，基本都是楼主自己的做法。
+
+22.
+technical talk 讲一个自己的project，画出流程图，应对各种测试方面的问题etc
+楼主答：只需要设计block的service，假设已经有办法获得一个blacklist的列表。主要debate在于这个service部署在哪里，一般来说blacklist会是reverse proxy/load balancer的一部分，不过interviewer认为这个service应该独立出来做一个单独的service，run在一个有cache的box上
+
+23.
+design 面经题，设计一个任务的delay schedule
+
+24.
+google calendar
+面试官主要集中问的数据库的设计， 怎么存各种event，先后顺序，key是什么这些。
+最后问了了一下怎么扩展到云端
+
+
+
+
+

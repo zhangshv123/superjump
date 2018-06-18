@@ -1,0 +1,75 @@
+process-thread, stack heap memory 区别, exception和error code的优缺点
+TCP UDP区别，HTTP协议用哪个
+实现一个hashtable，followup如果是多线程的话怎么加锁
+很好的答案
+https://yemengying.com/2016/05/07/threadsafe-hashmap/
+java基础知识只记得问了，final finally finalize
+
+
+1.LC339
+
+2.LC364
+
+3.LC20
+
+4.LC102(第3次)
+
+5.LC53
+
+6.LC187（问一下！！）
+有很多followup，比如要尽量节省空间，尽量节省constant time，打印要按字母排序打印，每个substring只能打印一次
+
+
+7.LC81
+
+8.LC243 要求in place
+
+9.LC297(第二次)
+用递归搞定。follow up问递归有什么不好，如果二叉树节点如果可以是任意字符，要怎么做。
+如果是单个字符，就把‘,’encode成长度为2的，比如aa
+如果是任意字符串，就encode64转换
+
+10.LC104
+
+11.LC170
+
+11.LC53
+
+12.LC244
+follow up是，要查3个单词的word distance
+题意就是3个index的list，找出最大的idx和最小idx,然后求差，时间复杂度是O(n)
+
+13.process vs thread的区别
+
+14.LC243
+
+15.LC33
+
+16.LC152
+
+17.LC256
+
+18.max sum of subarray
+http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+
+19.LC236(2次)
+考的是每个treenode有父节点的情况。。。
+拼命问detail
+
+20.LC254
+
+21.LC65
+
+22.LC102
+
+23.LC103
+
+24.LC339
+
+25.LC226
+
+26.LC156
+
+27.LC170
+
+28.LC200

@@ -1,0 +1,5 @@
+vending machine OOD. 
+design一个 order msg server,如何REAL TIME发送到client,以及维护没有成功发送的. msg
+
+问的非常杂，从最基本的 TREE问到红黑树，复杂度，推算复杂度，各种排序比较，优化。 
+如何设计一个一秒内被call 1000 次就报错的 func,用什么数据结构最快.  

@@ -1,0 +1,29 @@
+from collections import Set
+import copy
+from string import ascii_lowercase
+
+class Solution(object):
+    def ladderLength(self, beginWord, endWord, wordList):
+        beginSet, endSet , visited = set(), set(), set()
+        beginSet.add(beginWord)
+        endSet.add(endWord)
+        
+        level = 1
+        while len(beginSet) > 0 and len(endSet) > 0 :
+            level += 1
+            if len(beginSet) > len(endSet):
+                beginSet, endSet = endSet, beginSet
+            newSet = set()
+            while len(beginSet) > 0:
+                cur = beginSet.pop()
+                for i in range(len(cur)):
+                    for c in ascii_lowercase:
+                        word = cur[:i]+c+cur[i+1:]
+                        if word in endSet:
+                            return level
+                        if word not in visited and word in wordList:
+                            newSet.add(word)
+                            visited.add(word)
+            beginSet = newSet
+        return 0
+        

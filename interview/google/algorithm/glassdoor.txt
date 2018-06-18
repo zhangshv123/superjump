@@ -1,0 +1,180 @@
+From Glassdoor：
+Find if the given string contains an anagram of another smaller string.  
+Given a string, find the longest substring T that contains m distinct characters. (need O(n) solution)
+Given two strings with the same characters except for one additional character in one string, return that additional character. 
+First round:
+# A represents the set { sum list of numbers } 1, 2, 3, 4, 5, 6 ------like this
+A = [(2,3), (5,7), (9,10)]
+
+# B represents the set {another list of numbers } 1,2,3,4,5,6,7,8,9,0
+B = [(1,3), (5,10)]
+
+These lists always have the following properties:
+* Intervals are listed in ascending order.
+* Intervals are merged whenever possible.
+  i.e. you'll never see [(1,3), (4,5)] because it would be merged into [(1,5)]
+
+1. When we see a new event ID, we need to add it to the set. Write a function to add a number to one of these sets, while maintaining the above properties.
+
+Second Round:
+1.Binary search
+2. find the first repeated element in the array
+3. what is the time complexity of the code i wrote
+4. what can u do to improve the time complexity
+5. what is the space complexity for the program i wrote  
+Input a matrix, where every number is greater or equal to the numbers on its right and bottom.
+Output a sorted array  
+Given a tree, find and return the deepest node, along with its depth.  
+1.Detect illegal node in tree which have a cycle. 2.Find the missing value in the array from 0 to n.  
+Q1: find common characters in a string
+Q2: find the longest path from root to leaf in a binary tree
+Q3: shuffle a vector randomly  
+Programming questions: How to find blood relation of two hamsters. No data structure predefined, just let you to write a function to do so. Need ability to model the problem and then coding it fast and high quality. Another one is about finding prominence of peaks, a figure describing the concept. Interviewer pretty nice, very patient.
+Q: What is your preferred programming language and explain how you became familiar with it.
+One of them asked me about a question related to 2-sum and another one asked me to solve sky-line problem. It wasn't too bad. I struggled so hard though.  
+One question was: given a schedule of flights, can you write an algorithm to count the minimum number of planes needed?  
+Compare lexicographical order of two strings when there is a new pattern "ch" which comes after 'h' but before 'i'.
+A simple hash-map question.  
+you have a stream of integers, you have to decide if the stream is rising, falling or neither, code up the solution. Additionally asked me a few questions about Bayesian Networks, because I have a background in ML.  
+Give two node, to check if one tree is the subtree of another.  
+Compare 2 different strings which only differ in one bit, and analyze the time and space complexity of your algorithms. Follow up: two strings are very long so that we do not have enough space for the hashmap.  
+Given a dictionary as a hashtable and a word. Find the minimum # of deletions needed on the word in order to make it a valid word in the dictionary. 
+Given a string representing a sentence and a screen of fixed character width and character height, return the number of complete times the sentence wraps around without clipping words.  
+Find a path from a start point to an end point in a 2-D maze, and then find the minimum path. Then what if you are not allowed to stop until you a in front of a wall? Find a path and then find a minimum path. Analyze time complexity for each piece of codes you wrote.  
+1. shortest palindrome
+2. missing integer
+3. question about matrix
+4. fall of drop 
+Given the following decoder, write the encoder. (The encoder should be written to compress whenever possible):
+
+p14a8xkpq -> p14akkkkkkkkpq
+
+(8xk gets decoded to kkkkkkkk. The only other requirement is that encodings be unambiguous)  
+Interview 1: Given a group of tasks and a group of people, determine if the tasks can be completed.
+Interview 2: Given a string, return a string such that the vowels from the start are swapped with the vowels from the end. E.g. Input: united states. Output: enated stitus. 
+Design an one-finger keyboard system.  
+Generate numbers from given number and find the largest among them.  
+What is the most challenging bug and what did you learn?  
+My processor is consuming too much power, write a program to reduce processor power consumption. 
+Given an MxN matrix, determine whether a path can be drawn through every node in the matrix such that the end node is next to the start node, and each node is only touched once.
+- A n-child tree traversal problem
+- Array search and sort problems  
+1) Fibonacci number algorithm
+2) I had to write code for how many 2by2 and 4by4 box we have and add them
+One question dealt with detecting the 'edges' of a binary image by analyzing neighboring pixels in a two-dimensional grid. 
+Given a string, find the character that does not belong  
+Find if a given binary tree has duplicate sub trees. (just two leaf nodes of a parent do not count as subtree in this question).  
+Given a forest represented in array form and a given node, delete that node and all of its children. 
+1. Write a function to swap to data in any type.
+2. Read and improve code.
+3. Given a group of 2D points. Write a function to find whether there is any vertical line that can separate the group of points into 2 symmetric groups.  
+Write code to check a String is palindrome or not?  
+Given a list of ASII and utf-8 characters, return if the characters are actually valid.  
+Design a search index.  
+1. Given an integer array, count how many unique pairs in this array larger than a specific value.
+Follow-up: how many unique triples larger than a specific value.
+
+2. Given a binary search tree, write a function k-th smallest to find the k-th smallest element in it.
+Follow up: what if the BST is modified (insert/delete operations) often and you need to find the k-th smallest frequently? How would you optimize the k-th smallest routine?  
+Trees, Parallel processing of files. 
+Take in a string and duplicate the same string with an additional specific character within the string.  
+1. Merging overlapping intervals
+2. Given a list of words and an abbreviation, I have to write a function which returns true or false about whether the abbreviation maps to exactly one word or not  
+Dynamic Programming: Maximize ad revenue given a set of of advertisements with a start time, end time and total revenue  
+merge k sorted list
+Convert strings like aabbcccc to string like a2b2c4?  
+Producer-consumer problem / Bounded-buffer problem  
+Why do you want to join Google?  
+Museum Problem : Given a 2D grid of rooms which can be closed, open with no guard, or open with a guard. Return a grid with each square labeled with the distance to the nearest guard.  
+Give a list of coordinates, find horizontal symmetric line.  
+1. Write two functions: Given a n by n grid, (A) add a land at location (x,y) and (B) find the number of islands where an island is a group of adjacent lands.
+
+2-1. Given a set of numbers, find a subset of the numbers whose sum is equal to the sum of the complement set.
+
+2-2. Given a sequence of numbers, find a subsequence whose sum is the largest.
+
+3. Given a pre-order and a in-order traversals of a tree, reconstruct the tree.
+
+4. Given a 32bit sequence, find one in the most significant bit.  
+1.How to implement a start scenario of Candy Crush
+2.How to make a sorted list from the exclusive elements of two lists  
+You are given a collection of M arrays with N integers. Every array is sorted. Develop an algorithm to combine each array into one sorted array.  
+Model raindrops falling on a sidewalk (sidewalk is 1m and raindrops are 1cm if I remember correctly). How could we know when the sidewalk is completely wet.  
+Tell me about one item on the resume.  
+Given list and number get the sub lists that has sum of given number  
+They asked me to explain how hashtables worked.  
+Find duplicate elements from an array.
+How about in a very large file that can't load to memory.  
+A web app is crashing and there is no meaningful trace. How would you diagnose the problem?  
+(1) give you two strings S and T, find the shortest string in S which contains all the characters in T. (2) Switch Roma Number to decimal number.  
+Find the second largest element of a binary search tree  
+Reorder a list according to some specific criteria  
+How to shuffle elements in an array?  
+Given an array of strings, write a method to serialize that array into one single string, and a method to deserialize the single string back into the original array.  
+Given a string with repeated characters e.g. 'aaaalllriiiii', write a function to encode it repeating any sequence of duplicate characters with <number>x<character>, e.g. in that case '4xa3xlr4xi'. Only replace if it shortens the strring. Then questions about edge cases. 
+How do you add information to a class, without increasing the memory usage of an object? 
+Round 1
+Given a bitmap, use a quaTree data structure to represent the bitmap. The maps are all squares with black or white pixels and the length of the map is 2^n (you can always divide the map into 4 smaller parts). Then give you a root node of a quaTree, calculate the total black pixel in this map.
+
+Follow up:
+Given two root node, generate the intersection of these two maps.
+Round 2
+
+LeetCode Triangle
+Given a triangle of integers, find the maximum path sum from the top point to the bottom.
+
+Follow up:
+Print out the path of the maximum path  
+ A-1 B-2 .... AA -27 Write a function that given a number will return the string associated with it  
+Implement a queue using two stacks 
+There are 9 boxes labeled 1 to 9, some are open and some are closed. When you trow two dice, you have to close the boxes that sum up to the number on the dice; for example, if you get 6 and 1 on the two dice, you have to close boxes that add up to 7 (3 and 4, 2 and 5, 1 and 6) if they aren't already closed. Implement an algorithm that, given the status boxes and the value from the dice, returns all the possible combinations of boxes that can be closed to sum up to the number in the dice.  
+Given a binary tree, find if there are two subtrees that are the same. (i.e. the tree structures are the same; the values on all corresponding nodes are the same). You should find the largest subtrees.
+(And no, don't use brute force)  
+Given a social network as a graph, return the closest path to a given node from a given node.
+The first problem is about finding the shortest path in a graph with 2 follow-ups. The second one is about find 3 contiguous 1s in a horizontal or vertical line in a graph which only contains 0s and 1s.
+How do you split given string into words.  
+1. A log has start time and end time. Sort logs by start time.
+2. Algorithm question, solved by union find set.  
+One thing asked was how I would design a search engine, purely based on finding words in a document. Issues like scalability were the main topic of discussion  
+Question about getting the node that is closest in value to a tree.  
+Flip game, but with some difficult follow-ups.  
+Given a social network graph (nodes = people, edges = friendships between people) and a starting person, print the level of friendship for every other person with that person. That is, print the minimum number of "hops" (edges) to get from the start person to every other person. 
+Version of find the shortest path in a directed graph  
+Implement a ArrayList
+What is the problem if implement your algorithm in mutithread programming?  
+Perform additions of cells if index of row and column is given in a 2D array.  
+Data structure: how to trace back to the common ancestor in a binary tree for multiple nodes?  
+1) Tortoise traveling: need to apply oop concepts. simple problem.
+2) Island problem: island problem with little variation.  
+Reverse a linked list in k chunk 
+1. design data structure representing html (general tree design)
+2. scalable matrix
+4. math problem
+5. regular expression matching
+Given an array of light bulbs, whose states can be either on or off, find a structure to represent them and a method to flip the light bulbs in a given range. 
+Write a function that takes in two arrays of integers that represent the digits of two numbers and return an array of digits that represents their sum.
+Design a system to store ratings from 1-5 on applications. Find median, mean, and mode of ratings.
+Q1) There is an array of 10 integers. I will give you the start and end index of a range and calculate the sum of all numbers within that index range. Do all validations necessary. Will your code work if the array has 10 million integers? 
+Q2) Design a game of tetris. What programming classes will you have? Only look at the programming side and do not worry about the graphics programming. 
+Given an array of integers, find the length of the shortest subsequence that sums up to over a certain threshold.
+Matrix - given a nxn matrix, print the matrix in diagonal from left to right.  
+Imagine an employee structure. How would you find the lowest common manager given two employees? Code the structures and functions required.  
+Given a sequence of intervals on the reals, write a program to calculate the total amount spanned by those intervals. Now do it in 2D.  
+Code rand(min, max) with a uniform distribution
+Find the difference between two unsorted sets (lists). Interviewer eventually revealed that he wanted a solution in O(n) time.  
+What is the runtime of {popular search algorythm}? Explain why.  
+question about increment number represent by an array  
+Create a cache for a web server that will cache the last 100 unique pages served. For simplicity given a url just return a string as the result.  
+Find number of reciprocated edges in directed graph.  
+Create a data structure that helps finds probability of a certain disease within a family.  
+Write a function that takes two trees as an argument and returns true if they are equal.
+find the smallest node in BST that falls into a given range
+find intersections of two arrays
+Write a function to add a set {x, y} to a set of disjoint sets in a certain pattern.  
+How many integers fit in 2GB of RAM?  
+Implement a readers-writers lock using mutexes and condition variables.  
+Given a string which only contains lower case you need to delete only the repeated letters only leave one the resulting string should lexicography as smallest.
+i.e. bcabc
+delete the first b and first c
+
+

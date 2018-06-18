@@ -1,0 +1,67 @@
+LC1
+two-sum, 不过值得提的是follow up问了很多，包括如果是three sum会有什么变化，如果有重复值，要求输出所有值一样但是index不一样，或者要求筛掉所有值一样的该怎么做，甚至用two sum方程作为API，three sum该怎么用它
+
+LC4
+http://tinyurl.com/y87n8y3t
+
+LC10
+
+LC29(不会做)
+
+LC42
+
+LC314(第二次)
+http://www.1point3acres.com/bbs/thread-259187-1-1.html
+LC10
+
+LC79
+
+LC91 decode ways(第二次)
+
+LC125(第二次）
+lc138
+
+LC158
+read4k， 这轮妥妥跪，就一道题。 lz一开始用queue实现了，面试官指出 memory copy 了三次，分别是 readbuf->queue->buf，其中queue是多余的，让去除掉, 只做两次memo copy。我写代码实现了。然后又说其实readbuf也可以去掉，讨论之后我指出在n%(4k) == 0 可以不要readbuf。剩下10min不够写第二题，楼主急了，但是面试官仍然自high着乱扯了下别的，就没时间啦，让楼主提问！ 然后lz就跪了
+
+LC273				
+"链表倒着打出来。花式解呗，拿stack存着（跟recursion一样），然后翻转链表，输出， 再转回去。
+follow up很神奇，假设以上是个library，多个线程的时候怎么办？加lock... 如何加最好?讨论了半天我也只做到要被翻转的两个点之间加lock然后unlock，面试官说可以只加一次，然而没时间了。反正follow up问得我一脸懵*"	
+lc138	
+
+LC153
+
+LC211
+
+lc282	
+
+lc283 
+小哥问了各种变种，包括左边非0元素保留顺序，不保留顺序；右边全0，右边无所谓等等，还有求各个算法需要的assignment操作，如何让赋值操作最少。
+
+lc18
+
+LC301（需要remove括号的个数）		
+lc4(没做)
+	
+lc477
+
+LC506
+只要求返回true/false, 两种解hashmap + two pointers 秒了
+
+LC560
+
+LC636	
+
+字符串比较：
+让实现一个比较两道字符串的方法；前提是让字符串分block比较，相连的字母组成一个block，相连的数字组成一个block，比如“abcd12ef3”由4个block组成，两个字符串变成两组block之后对应的block挨个比较，如果对应的block一个是字母一个是数字，那么字母小于数字；如果对应的block都是字母，用的是String的标准的比较方法；如果对应的两个block都是数字，那么比较数字的绝对值大小。
+比如“abc12”大于"abc9"（第一个block相等，第二个block 12>9）, "a"小于“1”（字母小于数字），“12abd”小于"12ab"（数字block一样，后面的字母block后者大）。
+这道题了解了之后很简单，就是需要沟通很久确定各种情况，而且写代码很麻烦，还有很多边界条件需要确定（比如大小写，数字block会不会overflow之类），再加上当时脑袋有点卡壳，我用了java的String.compareTo，parseInt，substring等自带的方程，都写了半天。
+
+lc639. Decode Ways II(还没准备！！)
+
+一个机器人 不规则房间  房间有障碍物, 能够上下左右, 求机器人能走到的全部区域面积
+http://tinyurl.com/ycmqomw5
+
+一个int array(increasing order)，一个int ，返回这个int在数组里出现的次数 
+链接: https://instant.1point3acres.com/thread/289122
+lintcode: Search for a Range

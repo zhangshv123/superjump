@@ -1,0 +1,8 @@
+1 First, ask some questions about Facebook, do you use Facebook?
+2 Why you like it? 
+3 Which part of it should be improved? 
+4 What challenge you face in your pre project and how you result it?
+5 Why facebook 
+6 My current project and how I scale our applications.
+7 包括以前的成就，怎么说服别人做design的修改，说服不通怎么办。
+8 FB specifically (vs. other companies)

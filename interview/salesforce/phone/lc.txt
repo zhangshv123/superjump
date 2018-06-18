@@ -1,0 +1,73 @@
+lc212 http://tinyurl.com/y94c94pg
+lc153-154 http://tinyurl.com/y94c94pg
+lc54-59 http://tinyurl.com/yb7b5p4g
+
+之前在地里看了很多面经说会考java基本常识，复习预习了很久，然而最终没有回答对multithread的问题。coding考了permutation，作死地写了recursion然后面试官一直说我写的这个run不出理想结果，改了又改依然说不行，好忧伤。。这个题我之前还是写过的呢。。总之infra组还是建议不要写recursion，因为看得出来最终面试官不是很满意，他应该比较希望看到stack的方式。然后问了很多非常基本的比如为什么我选择用arraylist<string>这样的问题。虽然题目不难但是建议大家还是要准备一下这些基础的问题。
+再一点就是infra组其实不太喜欢recursion，最好用stack实现。
+http://tinyurl.com/yapo9lmw
+
+上周卖力电面，原定一个小时，聊了一个半小时。
+开始15分钟聊背景，聊项目，然后开始问各种题目。
+1. 写一个sort，我写了最简单的bubble sort
+2. Implement Queue Using Stacks，用了两个stacks，后来说能不能improve，我没想出来，刷题还是要仔细啊
+
+4. Template Method Design Pattern和Strategy Pattern的区别。我只知道Strategy Pattern，大致描述了一下
+5. Expmain what UTF-8 encoding is and how it compares with ASCII and UFT-16. 大致说了下UTF-8和ASCII，没说好
+6. ArrayList和LinkedList的区别，这个容易
+7. What is Database Normalization? Pros and Cons. 这个回答得还行
+8. Design an efficient way of copying one thousand files each 100KB in size from a single lab server to each of 1000 servers in a distance data center.
+先每个的server只远程拷贝一个file，然后server之间相互拷贝。不知道还有没有更好的办法
+9. Design file store service for use by web crawler
+说到了按文件名做为Key算HashValue，mod server count，但是问到如果文件名不同，content相同怎么办，没回答好，面试官说web crawler的file有一个signiture，用这个作为Key，后来google了一下，确实是unique的，掌握了这个知识点. 
+http://tinyurl.com/y97g9d8h
+
+
+LC intersection of two array的变体，要求处理3个array， follow up是处理N个array。 先写了hash的方法，然后写了sort+ two pointers的方法。
+http://tinyurl.com/ybmf9ro3
+
+1. OOP 基本概念
+2. coding: 类似 Graph Traversal， 每个node只能访问一遍
+http://tinyurl.com/y9ut5v7w
+
+
+电面1：一个半小时，一个小时的时间聊我之前做的东西，和现在工作的东西
+然后 2 sum 3 sum （当时他给我的一个coding界面特别奇怪，很不舒服，各位注意，不过电面2就是正常的了）
+电面2：
+我用c++，面试官用java. 
+让我实现一个 concurrenct list
+因为之前做过LRU，当时考虑了thread safe的情况，就上网搜了一下。
+优化的做法就是 把list分段的做lock，这样既能lock住，又能保证不会有太多的lock而影响performance
+不过对方说正确的答案就是在java里每个node都一个lock。所以我的答案他貌似不满意，应该也是挂在这了, 他们应该要找的是java的人。
+
+
+
+
+然后讨论了一下 lock mutex semaphore 的区别。
+A lock allows only one thread to enter the part that's locked and the lock is not shared with any other processes.
+
+A mutex is the same as a lock but it can be system wide (shared by multiple processes).
+
+A semaphore does the same as a mutex but allows x number of threads to enter, this can be used for example to limit the number of cpu, io or ram intensive tasks running at the same time.
+
+You also have read/write locks that allows either unlimited number of readers or 1 writer at any given time.
+http://tinyurl.com/yc93deza
+
+
+Design Uber
+Features, Estimation, Design Goals, Skeleton of the design and Deep Dive
+https://quip.com/1R32A12BDoDo
+
+
+
+1）sudoku solver
+2) 二叉树， 打印每一层的和
+3）输入一个字典 和 一个字符串， 输出字符串所有permutation在字典中的字。
+一开始用聊个O(n!)的暴力法， 然后用Trie tree 改进到O(n^3), 面试官还不满意， 最后5分中改进到O(n), 面试官很高兴， 因为他的解法是O(nlogn)
+构架和设计：
+1）connection pool. size 有限，但client 需要连到多个服务器。比如pool size 是1500， 需要连到两个服务器，每个服务器需要1000个连接。
+2）一个数据存取系统，设计已整套security system.
+其他
+1）网络2，3，4层的知识， LINUX 系统知识
+2）过去干过的项目
+3）Behavior 等等
+

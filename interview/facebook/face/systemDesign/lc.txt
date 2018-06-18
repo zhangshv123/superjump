@@ -1,0 +1,33 @@
+"Design a news comments feature, 要求提交comment 以后，别的用户能实时的看到
+Lunch"					http://www.1point3acres.com/bbs/thread-259187-1-1.html
+POI					
+设计 memcacheD					
+似乎是shadow，设计ins	
+
+Design Instagram
+问的都是比较常规的，load balance, sharding, handle failure，如何存储数据，SQL, NoSQL	
+
+设计一个online musice service的两个API， API1: record user listen to song, API2: return top 10 songs played by any user. 
+http://tinyurl.com/ydf8gs2t
+
+Design. NewsFeed
+
+1. download all urls from 1000 hosts. Imagine all the urls are graph. Requirement: Each host has bad internet connection among each other, Has to download url exacly once.
+
+链接: https://instant.1point3acres.com/thread/271245
+
+反正大概就是每次碰到一个url，hash一下，送到另外一台机器上去下载。我觉得蛮难的反正，当中tradeoff很多，所以没有正确答案，当中什么机器坏了怎么办等等，我其实也不太会，
+
+当N = 1时，用BFS/DFS都一样
+当N > 1时，把图分成K个子图，每个子图里面，起点random就行
+所以题目就简化成把一个大图，怎样分成size相同K个的小图：
+用greedy就行，找degree小的图
+
+1. 每个node之间的connection必须要少，比如你肯定要有个Map来存哪些url被访问过，但是如果分布式存的话，肯定要通信，要保证通讯很少因为node之前的网络很差。
+2. url是存在一个graph里面，意思就是如果用dfs/bfs,可能会访问到之前的节点。
+
+
+准备心得：
+1. 去年上过两期某章的系统设计课，扫过盲
+2. 今年暑假在coursera上过UIUC的cloud computing.
+3. 最后两周我花了几十块把这个课的材料买了 http://tinyurl.com/y7byuavl，打印出来狂背，挺有用的。			

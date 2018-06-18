@@ -1,0 +1,16 @@
+class Solution(object):
+    def isPalindrome1(self, head):
+    方法1:需要额外空间，stack
+        slow,fast = head,head
+        stk = []
+        while fast and fast.next:
+            fast = fast.next.next
+            stk.append(slow.val)
+            slow = slow.next
+        if fast :
+            slow = slow.next
+        while stk:
+            if slow.val != stk.pop():
+                return False
+            slow = slow.next
+        return True

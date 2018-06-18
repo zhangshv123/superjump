@@ -1,0 +1,90 @@
+process-thread, stack heap memory 区别, exception和error code的优缺点
+TCP UDP区别，HTTP协议用哪个
+实现一个hashtable，followup如果是多线程的话怎么加锁
+很好的答案
+https://yemengying.com/2016/05/07/threadsafe-hashmap/
+java基础知识只记得问了，final finally finalize
+
+
+1.LC339（第二次）
+
+2.LC364
+
+3.LC20
+
+4.LC102(第二次)
+
+6.LC187
+有很多followup，比如要尽量节省空间，尽量节省constant time，打印要按字母排序打印，每个substring只能打印一次
+
+
+7.LC81
+
+8.LC243 要求in place（第三次）
+
+9.LC297(第二次)
+用递归搞定。follow up问递归有什么不好，如果二叉树节点如果可以是任意字符，要怎么做。
+如果是单个字符，就把‘,’encode成长度为2的，比如aa
+如果是任意字符串，就encode64转换
+
+10.LC104
+
+11.LC170（第3次）
+先用省时间的方法做的，果然follow up问有没有省空间的方法，以及什么时候用哪一种方法。
+
+11.LC53
+http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+
+12.LC244
+follow up是，要查3个单词的word distance
+题意就是3个index的list，找出最大的idx和最小idx,然后求差，时间复杂度是O(n)
+
+13.process vs thread的区别
+
+15.LC33
+
+16.LC152
+
+17.LC256
+
+19.LC236(3次)
+考的是每个treenode有父节点的情况。。。
+拼命问detail
+
+20.LC254
+
+21.LC65
+
+23.LC103
+
+25.LC226
+
+26.LC156
+
+27.given one sorted char list and one char, find the first larget char which is larger than the given char
+典型二分法
+
+28.LC277 题目变种
+a知道b变成了社交网络a follow b这样
+面试官会特别扣细节，你需要把思路讲非常明白，他还会反问你问题（比如有没有可能出现两个名人:不可能！如果有2个名人，另外一个名人认识这个名人，另外一个就不可能是名人）
+问问另外一道题：
+http://tinyurl.com/y8pxd4lx
+
+29.
+LC69
+
+30.
+lc 149
+
+31.
+LC205
+
+32.
+LC671
+
+33.
+LC272(onsite也有！)
+
+
+
+

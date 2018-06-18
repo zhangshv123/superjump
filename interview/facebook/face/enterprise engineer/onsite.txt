@@ -1,0 +1,6 @@
+1.给一个intervals的数据流，可能有overlap，找到这些intervals总共cover的total time，其实就是merge intervals原题换个马甲。(LC56)
+
+2.Num of Islands变体，返回一个List里面是每个岛的大小。(LC200)
+
+
+

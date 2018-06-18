@@ -1,0 +1,12 @@
+面试官都问了什么， 讨论了什么： 
+1） 从功能开始，typehead是use case是什么，都搜什么东西， 比如是人，事件， 新闻； 要搜索global的东西，还是personalize的东西； 
+2） 大概讲一下数据量和peak的值， traffic 和 data size;  这些会影响设计。 
+3） 大概画画总体框架， 前端， 后端， load balancer,  cache,  db这些。
+4） 从前端开始，前端要负责什么， 除了显示内容， 比如过滤， 网页cache等
+5） 后端的API是什么样子，比如restful get 怎么完成一个请求
+6)  这些hot word 在缓存是怎么存的， 用什么数据结构，比如可以用到 trie， bloom filter；它们怎么工作，trie 的节点存什么？问的很多。
+7） 这些hot word 是怎么样更新的， 比如trie的更新频率，更新方式。问的很多，给画一个例子。
+8） trie太大了怎么去shard， 按用户， localization, 或者词本身，优缺点是什么。
+9） cache 怎么协同保证 consistent and partition， 是用global cache还是local cache。
+10） 数据库怎么存， 画一个表; Nosql怎么存。
+就这样，基本没时间了。然后问除了讨论的这些，还有那些没问到，但是很重要
