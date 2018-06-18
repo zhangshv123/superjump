@@ -155,28 +155,35 @@ class Solution:
 #如果2个节点可能一个存在，一个不存在tree里面，或者2个都不存在tree里面
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
-        rst = self.dfs(root, p, q)
-        if rst == p or rst == q:
-            return None
+        a = [False]
+        res = self.dfs(root, p, q, a)
+        if a[0] is True:
+            return res
         else:
-            return rst
-    
-    def dfs(self, root, p, q):
+            return None
+
+    def dfs(self, root, p, q, a):
         """
-        dfs function definition/specification
-        
-        params:
-        return:
+        :rtype: TreeNode
         """
-        if root == p or root == q or not root:
-            return root
-        left = self.lowestCommonAncestor(root.left, p, q)
-        right = self.lowestCommonAncestor(root.right, p, q)
-        
+        if not root:
+            return None
+        left = self.dfs(root.left, p, q, a)
+        right = self.dfs(root.right, p, q, a)
+        if root == p or root == q:
+            if left or right:
+                # found the LCA
+                a[0] = True
+                return root
+            else:
+                return root
         if left and not right:
             return left
         if right and not left:
             return right
         if not left and not right:
             return None
+        # found the LCA
+        a[0] = True
         return root
+        
