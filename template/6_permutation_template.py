@@ -13,7 +13,7 @@ def dfs(n, m, res, path):
 	# n = 10, m = 5, res = [...], path = [0, 3, 5], index = 8
 #	step 1: pick new i from(0,n)
 #	step 2: path.append(i)
-#	step 3: dfs(n, m, res, path, i+1)
+#	step 3: dfs(n, m, res, path)
 #	step 4: path.pop()
 #	repeat 1-4 until done:因为需要所有螺丝的可能性
 	if len(path) == m:
