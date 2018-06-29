@@ -1,7 +1,7 @@
 #combination
 #input: n, m
 #n is an array of [1, 2, ..., n]
-#choose m from n
+#choose m from n, order do not matter
 
 def combination(n, m):
 	res = []
