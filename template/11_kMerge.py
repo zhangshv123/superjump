@@ -24,7 +24,7 @@ def kMerge(k,arrs):
 print kMerge(3,[[1, 3, 5, 7],[2, 4, 6, 8],[0, 9, 10, 11]])
 1.merge2个复杂度多少？k个多少？
 knlog(n)
-2.比较优缺点
+2.比较优缺点 为什么 kway merge 比 2way merge 好
 merge2: 浪费临时存储空间
 每次中间的临时都要存储到disk里面去，然后还要读出来，就慢很多
 kmerge:节省空间
