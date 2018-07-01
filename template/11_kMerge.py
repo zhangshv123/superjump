@@ -21,6 +21,12 @@ def kMerge(k,arrs):
 	return res
 
 print kMerge(3,[[1, 3, 5, 7],[2, 4, 6, 8],[0, 9, 10, 11]])
+1.merge2个复杂度多少？k个多少？
+
+2.比较优缺点
+
+3.k个array 在k个文件里，每个文件4G，memery2个G（外部排序）
+
 		
 	
 	

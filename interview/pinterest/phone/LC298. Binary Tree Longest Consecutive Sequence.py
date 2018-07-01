@@ -29,3 +29,7 @@ class Solution(object):
 			local = max(local, right + 1)
 			
 		return local, max(local, gLeft, gRight)
+		
+follow up:
+	longest increasing sequence in the binary tree
+	只需要把第25行和28行都改成 > 就好了，其他不变
