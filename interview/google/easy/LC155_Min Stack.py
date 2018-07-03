@@ -15,6 +15,9 @@ minStack.pop();
 minStack.top();      --> Returns 0.
 minStack.getMin();   --> Returns -2.
 """
+思路：
+push
+只有当minstack为空，或者x<=minstack才会放x进去mintack
 class MinStack(object):
 
     def __init__(self):
@@ -51,6 +54,53 @@ class MinStack(object):
         :rtype: int
         """
         return self.minStack[-1]
+
+2个 stk都插入东西的代码：
+思路：
+每次来一个东西，stk1,minstack都会插入，只是需要注意minstack为空，或者最小的已经没了。需要更新minV的情况
+import sys
+class MinStack(object):
+    minV = sys.maxint
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.stack1 = []
+        self.stackMin = []
+
+    def push(self, x):
+        """
+        :type x: int
+        :rtype: void
+        """
+        self.stack1.append(x)
+        self.minV = min(self.minV, x)
+        self.stackMin.append(self.minV)
+        
+
+    def pop(self):
+        res = self.stack1.pop()
+        self.stackMin.pop()
+        if len(self.stackMin) == 0:
+            self.minV = sys.maxint
+        elif res < self.stackMin[-1]:
+            self.minV = self.stackMin[-1]
+        
+        return res
+
+    def top(self):
+        """
+        :rtype: int
+        """
+        return self.stack1[-1]
+
+    def getMin(self):
+        """
+        :rtype: int
+        """
+        return self.stackMin[-1]
+        
+
 
 
 # Your MinStack object will be instantiated and called as such:
