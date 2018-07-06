@@ -17,6 +17,38 @@ class Solution(object):
         :type s: str
         :rtype: List[List[str]]
         """
+        res = []
+        self.dfs(s, 0, [], res)
+        return res
+        
+    def dfs(self, s, index, path, res):
+        if index == len(s):
+            res.append(path[:])
+            return
+        
+        for i in range(index, len(s)):
+            if self.isPalindrome(s[index:i+1]):
+                path.append(s[index:i+1])
+                self.dfs(s, i+1, path, res)
+                path.pop()
+        
+    
+    def isPalindrome(self, s):
+        i, j = 0, len(s) - 1
+        while i < j:
+            if s[i] != s[j]:
+                return False
+            i += 1
+            j -= 1
+        return True
+
+
+class Solution(object):
+    def partition(self, s):
+        """
+        :type s: str
+        :rtype: List[List[str]]
+        """
         n = len(s)
         isPan = [[False for _ in range(n)] for _ in range(n)]
         for i in range(n):
