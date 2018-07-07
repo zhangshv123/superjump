@@ -1,53 +1,29 @@
-"""
-Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous 
-subarray of size at least 2 that sums up to the multiple of k, that is, sums up to n*k where n is also an integer.
+我们定义一个哈希表，用来保存截止目前的和模k之后的余数，例如截止i的时候，哈希表里面有2,3两个数，那么就表示扫描到nums[i]的时候，前面的和模k之后的余数有2,3。
+那么当我们扫描到j >= i + 2或者之后，如果发现截止当前的和模k的余数已经在哈希表里面了，就说明从[i + 1, j]这个闭区间的数的和可以被k整除。
 
-Example 1:
-Input: [23, 2, 4, 6, 7],  k=6
-Output: True
-Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.
-Example 2:
-Input: [23, 2, 6, 4, 7],  k=6
-Output: True
-Explanation: Because [23, 2, 6, 4, 7] is an continuous subarray of size 5 and sums up to 42.
-Note:
-The length of the array won't exceed 10,000.
-You may assume the sum of all the numbers is in the range of a signed 32-bit integer.
-Difficulty:Medium
-Total Accepted:31.7K
-Total Submissions:136.1K
-Contributor:xuehaohu
-Companies 
+一般情况下，我们可以用一个unordered_map，顺便把索引也保存一下，这样便于判断两个索引的差值是不是大于等于2。但是在下面的代码片段里面我们用了一个过渡变量pre，也就是扫描到当前位置的时候，我们才插入前一个余数pre，这样其实只需要一个unordered_set就可以了。
 
-Related Topics 
+算法的时间复杂度是O(n)，空间复杂度是O(k)，因为hash表的大小的最大可能值就是k。
+from sets import Set
+class Solution(object):
+	def checkSubarraySum(self, nums, k):
+		total, pre = 0, 0
+		s = set()
+		for i in range(len(nums)):
+			total += nums[i]
+			total = total if k == 0 else total%k
+			if total in s:
+				return True
+			s.add(pre)
+			pre = total
+		return False
+			
+		
 
-Similar Questions 
-Subarray Sum Equals K
-
-"""
-
-"""
-We iterate through the input array exactly once, keeping track of the running sum mod k of the elements in the process.
- If we find that a running sum value at index j has been previously seen before in some earlier index i in the array, 
- then we know that the sub-array (i,j] contains a desired sum.
-"""
-
-class Solution:
-    def checkSubarraySum(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: bool
-        """
-        sums, mod = {0: -1}, 0
-        for i, num in enumerate(nums):
-            mod += num
-            if k != 0:
-                mod = mod % k
-            if mod in sums:
-                if i - sums[mod] > 1:
-                    return True
-            else:
-                sums[mod] = i
-        return False
-            
+s = Solution()
+print s.checkSubarraySum([0,1,0,0],0)
+			
+			
+			
+			
+			
