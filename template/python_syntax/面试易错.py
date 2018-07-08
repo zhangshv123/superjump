@@ -27,3 +27,15 @@ class Solution(object):
 		if root:
 			res = self.dfs(root)
 		return self.glo
+		
+6.初始化object的方式
+看resize_page.py
+class pin:
+	def __init__(self, id = 0, height = 0):
+		self.id = id
+		self.height = height
+
+s = pin()
+pin1 = pin(1,100)
+pin2 = pin(2,200)
+pin3 = pin(3,150)
