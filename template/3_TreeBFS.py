@@ -32,12 +32,11 @@ class Solution(object):
 			size = len(q) #如果不需要一层一层的，那就不需要第40，41行
 			for i in range(size):
 				cur = q.popleft()
-				if cur:
-					layer.append(cur.val)
-					if cur.left:
-						q.append(cur.left)
-					if cur.right:
-						q.append(cur.right)
+				layer.append(cur.val)
+				if cur.left:
+					q.append(cur.left)
+				if cur.right:
+					q.append(cur.right)
 			res.append(layer)
 		return res
 
