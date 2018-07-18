@@ -21,8 +21,6 @@ def dfs(n, m, res, path, index):
 		return
 	
 	for i in range(index,n):
-		if i in path:
-			continue
 		path.append(i)
 		dfs(n, m, res, path, i+1)
 		path.pop()
