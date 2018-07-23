@@ -39,3 +39,8 @@ s = pin()
 pin1 = pin(1,100)
 pin2 = pin(2,200)
 pin3 = pin(3,150)
+
+7.defauldict
+参见
+http://tinyurl.com/ybprpfko
+When each key is encountered for the first time, it is not already in the mapping; so an entry is automatically created using the default_factory function which returns an empty list. The list.append() operation then attaches the value to the new list. When keys are encountered again, the look-up proceeds normally (returning the list for that key) and the list.append() operation adds another value to the list. 
