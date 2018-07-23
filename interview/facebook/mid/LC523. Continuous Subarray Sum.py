@@ -23,7 +23,9 @@ class Solution(object):
 s = Solution()
 print s.checkSubarraySum([0,1,0,0],0)
 			
-			
+follow up:
+如果resize page,col发生变换了，怎么办？
+先按照 exist/new col，然后平铺， 铺完了，继续用原来的方法放			
 			
 			
 			

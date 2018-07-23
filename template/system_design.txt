@@ -1,0 +1,111 @@
+1. SCOPE the problem: Don't make assumptions; Ask questions; Understand the constraints and use cases.
+2. Sketch up an ABSTRACT DESIGN that illustrates the basic components of the system and the relationships between them.
+3. Think about the BOTTLENECKS these components face when the system scales.
+4. Address these bottlenecks by using the fundamentals principles of SCALABLE SYSTEM DESIGN.
+-----------
+Discuss use cases with interviewer.
+Give constraints (requests/connections, upload/download traffic, data read/write, etc.).
+Give abstract design (!!!).
+Analyze bottlenecks (concurrent requests/connections, taffic incl. uploading and downloading, data read/write, etc.).
+Give scalable system designs to solve bottlenetcks.
+-----------
+Scalable system designs:
+
+Vertical scaling
+Horizontal scaling
+Caching
+	cached .html
+	mysql query cache (feature of mysql)
+	memcached/redis
+	garbage collection
+Load balancing
+Database replication
+	master-master
+	master-slave
+Database partitioning
+	SQL sharding (http://www.brentozar.com/archive/2013/05/the-basics-of-database-sharding/)
+CDN for improving networking throughput(downstream)
+	Amazon CloudFront
+
+-----------
+Distributed System Components
+
+Distributed File System
+	GFS
+	BigTable
+	HDFS
+	GPFS
+
+Distributed Computing
+	MapReduce
+	
+SQL DB
+	MySQL
+	PostgreSQL
+
+NoSQL DB
+	MongoDB
+	Hbase
+	Cassandra
+	Hive
+
+------------
+Design examples
+	generate ID across shard clusters (sortable) by Instagram: http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram
+	use CDN for web caching by Cinchast: http://highscalability.com/blog/2012/7/16/cinchcast-architecture-producing-1500-hours-of-audio-every-d.html
+
+------------
+real-life architectures
+
+Instagram
+	Ubuntu Linux 11.04 on Amazcon EC2
+	LB: 2 nginx
+
+------------
+How to solve bottleneck problems?
+
+1. A huge amount of active users:
+Use redis to store session state! 
+	It is very flexible in how you want to persist session state to your hard-disk.
+	Shard across multiple instances if necessary
+
+2. A huge amount of concurrent web requests:
+Use CDN servers to cache JavaScript, CSS, images and videos (i.e., static content, mod expire setting in Apache).
+
+3. OS: disk I/O
+raid
+distributed file systems ()
+
+4. 
+
+Google: pay attention to their own distributed system designs!
+
+-----------
+Practice:
+Design rate limiterw
+Design Tiny URL API
+Design news Feed API
+-----------
+topics:
+inverted index, consistent hashing, consistency level and partitioning (CAP), and map-reduce.
+------------
+test case design:
+JUnit test case
+------------
+SQL Isolation levels
+serializable (cannot delete and insert when in the same transaction)
+repeated reads (cannot change or delete but may insert)
+read committed (can do anything)
+read uncommitted (no lock for read at all)
+-------------
+Some cencepts to check:
+
+Distributed Hash Table
+Eventual Consistency vs Strong Consistency
+Read Heavy vs Write Heavy
+Consistent Hashing
+Sticky Sessions
+Structured Data(uses DynamoDB) vs Unstructured Data(uses S3)http://smartdatacollective.com/michelenemschoff/206391/quick-guide-structured-and-unstructured-data http://stackoverflow.com/questions/18678315/amazon-s3-or-dynamodb
+
+
+
