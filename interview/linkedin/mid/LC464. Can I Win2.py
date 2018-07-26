@@ -9,18 +9,18 @@ main function:
 from sets import Set
 class Solution(object):
 	def canIWin(self, N, M):
-		return dfs(n,(),target)
+		return dfs(n,(),M)
 	
 	def dfs(self, n, visited, target):
 		for c in n:
 			if c not in visited:
 				if c >= target:
 					return True
-			visited.add(c)
-			local = self.dfs(n, visited, target - c)
-			if not local:
-				return True
-			visited.remove(c)
+				visited.add(c)
+				local = self.dfs(n, visited, target - c)
+				if not local:
+					return True
+				visited.remove(c)
 		return False
 
 			

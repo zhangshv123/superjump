@@ -70,7 +70,7 @@ class Solution(object):
         for i in range(index, len(nums)):
             path.append(nums[i])
             self.dfs(i + 1, nums, res, path)
-            path.remove(nums[i]) 
+            path.pop()
 """
 path:
 1
