@@ -39,3 +39,6 @@ s = pin()
 pin1 = pin(1,100)
 pin2 = pin(2,200)
 pin3 = pin(3,150)
+
+7. set的方法：
+https://www.programiz.com/python-programming/methods/set/remove
