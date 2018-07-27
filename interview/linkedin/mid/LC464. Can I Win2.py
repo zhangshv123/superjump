@@ -9,6 +9,7 @@ main function:
 from collections import defaultdict
 class Solution(object):
 	def canIWin(self, N, M):
+<<<<<<< HEAD
 		visited = defaultdict(lambda: False)
 		return self.dfs(N,visited,M)
 	
@@ -23,6 +24,20 @@ class Solution(object):
 			visited[c] = False
 			if not local:
 				return True
+=======
+		return dfs(n,(),M)
+	
+	def dfs(self, n, visited, target):
+		for c in n:
+			if c not in visited:
+				if c >= target:
+					return True
+				visited.add(c)
+				local = self.dfs(n, visited, target - c)
+				if not local:
+					return True
+				visited.remove(c)
+>>>>>>> origin/master
 		return False
 
 			
