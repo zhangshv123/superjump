@@ -1,0 +1,66 @@
+A = // [4, 5, 2, 1, 6, 3] --- K-sorted array where k=3
+     代表真实的位置最多偏离K位的，比如4偏离了3个位置
+    
+   //  [1, 2, 3, 4, 5, 6]
+// Given a k-sorted array: A, and the parameter k, finish sorting the input array: A
+
+
+from collecions import heapq
+def sortArray(arr,k):
+	if not arr:
+		return None
+	q = []
+	res = []
+	for i in range(k+1):
+		heapq.heappush(q, arr[i])
+
+	i = k+1
+	while i < len(arr):
+		res.append(heapq.heappop())
+		heapq.heappush(q, arr[i])
+		i += 1
+	while len(q) > 0:
+		res.append(q.heappop())
+
+	return res
+
+A = [4, 5, 2, 1, 6, 3] 
+print sortArray(A,3)
+
+A = [4, 2, 2, 1, 6, 3] k = 3
+
+A = [4, 2, 2, 1, 6, 3] k = 5
+A = none
+A = [0,0,0,0,0]  k = 0
+
+import heapq
+def sortArray(arr,k):
+	if not arr:
+		return None
+	q = []
+	res = []
+	for i in range(k+1):
+		heapq.heappush(q, arr[i])
+
+	i = k+1
+	while i < len(arr):
+		res.append(heapq.heappop(q))
+		heapq.heappush(q, arr[i])
+		i += 1
+	while len(q) > 0:
+		res.append(heapq.heappop(q))
+
+	return res
+
+A = [4, 5, 2, 2, 6, 3] 
+print sortArray(A,3)
+
+
+
+
+
+
+
+
+	
+
