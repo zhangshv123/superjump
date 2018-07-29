@@ -16,6 +16,19 @@ This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
 #     def __init__(self, s=0, e=0):
 #         self.start = s
 #         self.end = e
+和L56非常类似，先把这个新的interval加进去，然后sort，然后再merge就好了
+class Solution(object):
+    def insert(self, intervals, newInterval):
+        intervals.append(newInterval)
+        res = []
+        intervals.sort(key = lambda a:a.start)
+        for interval in intervals:
+            if len(res) == 0 or res[-1].end < interval.start:
+                res.append(interval)
+            else:
+                res[-1].end = max(res[-1].end,interval.end)
+        return res
+
 
 class Solution(object):
     def insert(self, intervals, newInterval):
