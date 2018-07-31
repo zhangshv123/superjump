@@ -1,3 +1,8 @@
+insert(val): 将val添至dataList末尾，并在dataMap中保存val的下标idx
+
+remove(val): 记val的下标为idx，dataList末尾元素为tail，弹出tail并将其替换至idx处，在dataMap中更新tail的下标为idx，最后从dataMap中移除val
+
+getRandom: 从dataList中随机选取元素返回
 from random import *
 class RandomizedSet(object):
 
