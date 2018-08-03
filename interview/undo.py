@@ -1,7 +1,26 @@
+题目：
+operation             result
+insert(0, abc)        abc
+insert(3, xyz)        abcxyz
+delete(2, 2)          abyz
+undo()                abcxyz
+undo()                abc
+redo()                abcxyz
+redo()                abyz
+
+实现四个function
+insert(index, string to insert)
+delete(index, number of characters to remove)
+redo()
+undo()
+思路：
+
 有2个stk,一个undo, 一个redo
 对于insert,delete，每次把结果放入undo
-对于undo,把undo结果pop出来，放到redo里面
-对于redo，把直接把redo的最后一个pop出来就好
+对于undo,把undo最后一个pop出来，放到redo里面，然后返回undo剩下的最后一个
+对于redo，直接把redo的最后一个pop出来就好
+
+redo的作用就是撤销undo的操作，undo是撤销上一个操作
 class Solution(object):
 	result = ""
 	undo = []
