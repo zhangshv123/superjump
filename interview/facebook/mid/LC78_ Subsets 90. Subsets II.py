@@ -18,6 +18,36 @@ If nums = [1,2,3], a solution is:
     []
 ]
 """
+用01模板的版本：
+虽然长一点，但是可以用模板！
+class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
+        total = []
+        self.dfs(len(nums),0,res, [],[0,1])
+        for path in res:
+            tep = []
+            for i in range(len(path)):
+                if path[i] == 1:
+                    tep.append(nums[i])
+            total.append(tep)
+        return total
+                    
+            
+    
+    def dfs(self, n, idx, res, path, possible):
+        if idx == n:
+            res.append(path[:])
+            return
+        
+        for pos in possible:
+            path.append(pos)
+            self.dfs(n, idx+1, res, path, possible)
+            path.pop()
 
 """
 sol1: every item can appear or not
