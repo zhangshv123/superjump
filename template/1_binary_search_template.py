@@ -18,4 +18,10 @@ class Solution:
 			return start
 		if nums[end] == target:
 			return end
-		return -1
+		return start,end 
+		
+s = Solution()
+print s.binarySearch([1,2,2,5,5,7], 4)
+#返回（2，3）
+print s.binarySearch([1,2,2,5,5,7], 8)
+#返回（4，5），不对，所以要提前check target是不是比num里面最后一个大，就是比所有的都大
