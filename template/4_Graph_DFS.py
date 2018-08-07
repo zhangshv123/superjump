@@ -24,6 +24,7 @@ Return ["eat","oath"].
 #O(row*col*4^max(len(dictWords[x]))
 import sets
 class Solution(object): 
+	directions = [-1,0],[0,-1],[0,1],[1,0]
 	def getValidWords(self, matrix, words):
 		"""
 		:type board: List[List[str]]
@@ -46,7 +47,6 @@ class Solution(object):
 	def dfs(self,matrix, x, y, trie, visited,res,path): #find the next point from (x,y) to match this trie node
 		if trie.isWord:
 			res.append(path[:])
-		directions = [-1,0],[0,-1],[0,1],[1,0]
 		for direction in directions:
 			new_x = x + direction[0]
 			new_y = y + direction[1]

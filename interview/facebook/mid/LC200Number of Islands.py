@@ -31,6 +31,36 @@ conquer:块与块之间整合的时候，考虑抵消的情况
 
 class Solution(object):
     def numIslands(self, grid):
+        count = 0
+        if not grid or len(grid) == 0 or len(grid[0]) == 0:
+            return count        
+        row = len(grid)
+        col = len(grid[0])
+        flag = [["0" for i in range(len(grid[0]))] for j in range(len(grid))] #作为标记，为了不改变input grid
+
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j] == "1" and flag[i][j] == "0": #没有访问过，并且grid里面是土地
+                    count += 1
+                    self.dfs(i, j, grid, flag)
+        return count
+    
+    
+    def dfs(self, x, y, grid, flag):
+        flag[x][y] = "1"
+        if x >=1 and grid[x-1][y] == "1" and flag[x-1][y] == "0":
+            self.dfs(x-1, y, grid, flag)
+        if y >=1 and grid[x][y-1] == "1" and flag[x][y-1] == "0":
+            self.dfs(x, y-1, grid, flag)
+        if y+1 < len(grid[0]) and grid[x][y+1] == "1" and flag[x][y+1] == "0":
+            self.dfs(x, y+1, grid, flag)
+        if x+1 < len(grid) and grid[x+1][y] == "1" and flag[x+1][y] == "0":
+            self.dfs(x+1, y, grid, flag)
+        return
+
+
+class Solution(object):
+    def numIslands(self, grid):
         if not grid or len(grid) == 0 or len(grid[0]) == 0:
             return 0
         row = len(grid)
@@ -59,33 +89,7 @@ class Solution(object):
         self.helper(i+1,j,grid,flag)
         self.helper(i,j+1,grid,flag)
 
-
-
-class Solution(object):
-    def numIslands(self, grid):
-        """
-        :type grid: List[List[str]]
-        :rtype: int
-        """
-        if grid is None or len(grid) == 0 or len(grid[0]) == 0:
-            return 0
-        m, n, count = len(grid), len(grid[0]), 0
-        for row in range(m):
-            for col in range(n):
-                if grid[row][col] == '1':
-                    self.dfs(grid, row, col)
-                    count += 1
-        return count
-    def dfs(self, grid, row, col):
-        m, n = len(grid), len(grid[0])
-        if row < 0 or row >= m or col < 0 or col >= n or grid[row][col] == '0':
-            return
-        grid[row][col] = '0'
-        self.dfs(grid, row - 1, col)
-        self.dfs(grid, row + 1, col)
-        self.dfs(grid, row, col - 1)
-        self.dfs(grid, row, col + 1)
-
+#BFS
 import sets
 from collections import deque
 class Solution(object):
@@ -120,6 +124,44 @@ class Solution(object):
 
 # FB面试改进：
 # 输出每个岛的面积
+class Solution(object):
+    def numIslands(self, grid):
+        if not grid or len(grid) == 0 or len(grid[0]) == 0:
+            return count        
+        row = len(grid)
+        col = len(grid[0])
+        flag = [["0" for i in range(len(grid[0]))] for j in range(len(grid))]
+        res = []
+
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j] == "1" and flag[i][j] == "0":
+                    path = [1]
+                    self.dfs(i, j, grid, flag, res, path)
+                    res.append(len(path))
+        return res
+    
+    
+    def dfs(self, x, y, grid, flag, res, path):
+        flag[x][y] = "1"
+        if x >=1 and grid[x-1][y] == "1" and flag[x-1][y] == "0":
+            path.append("1")
+            self.dfs(x-1, y, grid, flag, res, path)
+        if y >=1 and grid[x][y-1] == "1" and flag[x][y-1] == "0":
+            path.append("1")
+            self.dfs(x, y-1, grid, flag, res, path)
+        if y+1 < len(grid[0]) and grid[x][y+1] == "1" and flag[x][y+1] == "0":
+            path.append("1")
+            self.dfs(x, y+1, grid, flag, res, path)
+        if x+1 < len(grid) and grid[x+1][y] == "1" and flag[x+1][y] == "0":
+            path.append("1")
+            self.dfs(x+1, y, grid, flag, res, path)
+        return
+s = Solution()
+print s.numIslands([["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]])
+print s.numIslands([["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]])
+print s.numIslands([["1","1","1"],["0","1","0"],["1","1","1"]])
+#别的版本
 class Solution(object):
     def numIslands(self, grid):
         if not grid or len(grid) == 0 or len(grid[0]) == 0:
