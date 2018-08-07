@@ -31,3 +31,6 @@ print obj.shouldPrintMessage(3,"foo")
 print obj.shouldPrintMessage(8,"bar")
 print obj.shouldPrintMessage(10,"foo")
 print obj.shouldPrintMessage(11,"foo")
+
+因为rate limiter是先进先出，所以用q，pop掉旧的记录，然后剩下都是合格的，数一下合格的有没有超过10个，
+如果没有就加进去，不然就reject
