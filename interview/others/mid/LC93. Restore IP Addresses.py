@@ -8,6 +8,30 @@ return ["255.255.11.135", "255.255.111.35"].
 """
 class Solution(object):
     def restoreIpAddresses(self, s):
+        res = []
+        self.dfs(0, [], s, res, 0)
+        return res
+    
+    def dfs(self, pre, path, s, res, k):
+        if k == 4:
+            if pre == len(s):
+                res.append(".".join(path[:]))
+                return
+            else:
+                return
+        
+        for i in range(pre, pre+3):
+            if i >= len(s):
+                return
+            if s[pre] == "0" and i != pre:
+                continue
+            if int(s[pre:i+1]) <= 255:
+                path.append(s[pre:i+1])
+                self.dfs(i+1, path, s, res, k+1)
+                path.pop()
+
+class Solution(object):
+    def restoreIpAddresses(self, s):
         """
         :type s: str
         :rtype: List[str]
