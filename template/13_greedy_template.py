@@ -15,5 +15,7 @@ def intervalScheduling(arrs):
 	return len(res)
 
 print intervalScheduling([(0,6),(1,4),(3,5),(3,8),(4,7),(5,9),(6,10),(8,11)])
+
+另一道greedy 问题可以看power_plant 在houzz电面面经里面
 	
 	
