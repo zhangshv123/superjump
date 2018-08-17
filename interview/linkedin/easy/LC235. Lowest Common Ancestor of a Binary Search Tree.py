@@ -18,15 +18,11 @@ class Solution(object):
 #iterative的版本：
 class Solution(object):
 	def lowestCommonAncestor(self, root, p, q):
-		if not root:
-			return None
-		while True:
-			while root.val < min(p.val, q.val):
-				if root.left:
-					root = root.right
-			while root.val > max(p.val, q.val):
-				if root.right:
-					root = root.left
-			if root.val >= min(p.val, q.val) and root.val <= max(p.val, q.val):
+		while root:
+			if root.val < min(p.val, q.val):
+				root = root.right
+			elif root.val > max(p.val, q.val):
+				root = root.left
+			else:
 				return root
-		return None  
+		return root 
