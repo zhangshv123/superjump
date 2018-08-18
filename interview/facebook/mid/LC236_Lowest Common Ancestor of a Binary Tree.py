@@ -43,17 +43,59 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        if root is None or root == p or root == q:
+        if root == p or root == q :
             return root
-        left = self.lowestCommonAncestor(root.left, p, q) #找root.left里面是否存在p,q,如果存在哪一个就返回哪个
-        right = self.lowestCommonAncestor(root.right, p, q)
-        if left is None and right is not None:
+        left, right = None, None
+        if root.left:
+            left = self.lowestCommonAncestor(root.left,p,q)
+        if root.right:
+            right = self.lowestCommonAncestor(root.right,p,q)
+        
+        if left and right:
+            return root
+        elif right and not left:
             return right
-        if right is None and left is not None:
+        else:
             return left
-        if left is None and right is None: #代表p,q都不在root.left里面，也不在root.right里面，所以就直接返回null
-            return None
-        return root
+
+
+鑫鑫的non-recursive版本
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        stk = []
+        stk.append([root, False, False, None, None])
+        while len(stk) > 0:
+            curr = stk[-1]
+            if curr[0]== p or curr[0] == q or not curr[0]:
+                ret = curr[0]
+                stk.pop()
+                if len(stk)>0:
+                    if not stk[-1][1]:
+                        stk[-1][1] = True
+                    else:
+                        stk[-1][2] = True                
+                continue
+            if not curr[1]:
+                stk.append([curr[0].left, False, False, None, None])
+            elif not curr[2]:
+                curr[3] = ret
+                stk.append([curr[0].right, False, False, None, None])
+            else:
+                curr[4] = ret
+                left, right = curr[3], curr[4]
+                if left and right:
+                    ret = curr[0]
+                elif not left and right:
+                    ret = right
+                else:
+                    ret = left
+                stk.pop()
+                if len(stk)>0:
+                    if not stk[-1][1]:
+                        stk[-1][1] = True
+                    else:
+                        stk[-1][2] = True
+        return ret
 
 
 """
@@ -186,4 +228,62 @@ class Solution(object):
         # found the LCA
         a[0] = True
         return root
+
+
+        # Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        stk = []
+        stk.append([root, False, False, None, None])
+        while len(stk) > 0:
+            curr = stk[-1]
+            print curr
+            if curr[0]== p or curr[0] == q or not curr[0]:
+                ret = curr[0]
+                stk.pop()
+                if len(stk)>0:
+                    if not stk[-1][1]:
+                        stk[-1][1] = True
+                    else:
+                        stk[-1][2] = True                
+                continue
+            if not curr[1]:
+                stk.append([curr[0].left, False, False, None, None])
+            elif not curr[2]:
+                curr[3] = ret
+                stk.append([curr[0].right, False, False, None, None])
+            else:
+                curr[4] = ret
+                left, right = curr[3], curr[4]
+                if left and right:
+                    ret = curr[0]
+                elif not left and right:
+                    ret = right
+                else:
+                    ret = left
+                stk.pop()
+                if len(stk)>0:
+                    print stk
+                    if not stk[-1][1]:
+                        stk[-1][1] = True
+                    else:
+                        stk[-1][2] = True
+        return ret
+
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+#root.right.left = TreeNode(6)
+#root.right.right = TreeNode(7)
+
+s = Solution()
+print s.lowestCommonAncestor(root, root.right, root.left.left)        
         
