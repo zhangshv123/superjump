@@ -35,5 +35,37 @@ class Solution(object):
         else:
             left = self.inorderSuccessor(root.left, p)
             return left if left != None else root
+iterative Solution
+思路：
+1.有右儿子，就找右儿子里面值最小的
+2.没有右儿子，就search找到最后一个比自己大的值
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+class Solution(object):
+    def inorderSuccessor(self, root, p):
+        res = None
+        if p.right:
+            return self.minValue(p.right)
+        res = None
+        while root:
+            if root.val > p.val:
+                res = root
+                root = root.left
+            elif root.val < p.val:
+                root = root.right
+            else:
+                break
+        return res
+    
+    def minValue(self, p):
+        left, right = p.val, p.val
+        if p.left:
+            left = self.minValue(p.left)
+        elif p.right:
+            right = self.minValue(p.right)
+        return min(left,right,p)
 
     
