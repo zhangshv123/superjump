@@ -1,0 +1,70 @@
+给一个二叉树，求最深节点的公共祖先
+   1
+  / \
+ 2   3
+    / \
+   4   5
+return 3
+
+    1
+   / \
+  2   3
+ /   / \
+6   4   5
+return 1      
+思路：先用LC257的代码，求出所有根节点的path,然后再里面挑出最长的几个，然后求它们的LCA
+class TreeNode(object):
+	def __init__(self, x):
+		self.val = x
+		self.left = None
+		self.right = None
+		
+class Solution(object):
+	def binaryTreePaths(self, root):
+		res = []
+		if not root:
+			return res
+		self.dfs(root, [str(root.val)], res)
+		new_res = []
+		long = len(res[0])
+		for path in res:
+			if len(path) > long:
+				new_res = []
+				new_res.append(path)
+			elif len(path) == long:
+				new_res.append(path)
+		pre = new_res[0][0]
+		i = 1
+		while i  < len(new_res[0]):
+			same = new_res[0][i]
+			for path in new_res:
+				if path[i] != same:
+					return pre
+			pre = new_res[0][i]	
+			i += 1
+		
+	def dfs(self, node, path, res):
+		if not node.left and not node.right:
+			res.append(path[:])
+			return
+		
+		if node.left:
+			path.append(str(node.left.val))
+			self.dfs(node.left, path, res)
+			path.pop()
+		
+		if node.right:
+			path.append(str(node.right.val))
+			self.dfs(node.right, path, res)
+			path.pop()
+
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+root.right.left = TreeNode(6)
+root.right.right = TreeNode(7)
+
+s = Solution()
+print s.binaryTreePaths(root)
