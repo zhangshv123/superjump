@@ -7,19 +7,18 @@
 #         self.right = None
 
 class Solution(object):
-    def helper(self, nums, left, right):
-        if left > right:
-            return None
-        mid = left + (right - left) / 2
-        root = TreeNode(nums[mid])
-        left = self.helper(nums, left, mid - 1)
-        right = self.helper(nums, mid + 1, right)
-        root.left, root.right = left, right
-        return root
-    
     def sortedArrayToBST(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: TreeNode
-        """
-        return self.helper(nums, 0, len(nums) - 1)
+        if not nums or len(nums) == 0:
+            return None
+        return self.convert(nums, 0, len(nums)-1)
+
+    def convert(self,nums, start, end):
+        if start > end:
+            return None
+        if start == end:
+            return TreeNode(nums[start])
+        mid = (start + end)/2
+        root = TreeNode(nums[mid])
+        root.left = self.convert(nums, start, mid-1)
+        root.right = self.convert(nums, mid+1, end)
+        return root
