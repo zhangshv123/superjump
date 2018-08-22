@@ -14,6 +14,8 @@ You may assume no duplicate exists in the array.
 
 3. nums[mid] > nums[right]，这种情况是当前的数大于右边数组的一个数，说明当前的位置在左半数组中，因此要查找右半数组第一个数的位置可以向右搜索[mid+1, right]
 """
+参考：
+http://bangbingsyb.blogspot.com/2014/11/leecode-find-minimum-in-rotated-sorted.html
 class Solution(object):
 	def findMin(self, nums):
 		"""
