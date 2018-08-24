@@ -1,0 +1,53 @@
+1.进程 和 线程
+见multi thread模板
+2.什么是hashmap:
+是一个map, map from key to value
+a common data structure used in computer software for rapid data lookup.
+hash function 是啥？
+A hash function is any function that can be used to map data of arbitrary size to data of a fixed size. 
+The values returned by a hash function are called hash values, hash codes, digests, or simply hashes. 
+3.how hashmap works?
+A Hashtable internally contains buckets in which it stores the key/value pairs. 
+When you pass a key/value to the Hashtable, it queries the key's hashcode. 
+The Hashtable uses that code to determine the bucket in which to place the key/value.
+4.how to avoid collision?
+A collision will occur on Hashtable or HashMap when hashCode() method 
+of two different key objects will return same values. 
+请看
+https://en.wikipedia.org/wiki/Hash_table
+里面的：
+Separate chaining
+Open addressing
+存pointer to linked list，1 pointer = 4 bytes 
+3.tcp/ip 有几层:
+5层
+Application layer(SMTP, FTP, SSH, HTTP)
+Transport layer(UDP,TCP) TCP失败会重发，但是UDP发了就不管了
+Internet layer(IPV4,IPV6)
+Link layer(MAC address)
+https://en.wikipedia.org/wiki/Internet_protocol_suite
+4.
+输入google.com发生了啥？
+What happens when you type a URL in browser
+http://edusagar.com/articles/view/70/What-happens-when-you-type-a-URL-in-browser
+
+hostname:portnumber/controller/method?parameter
+
+Step 1. URL is typed in the browser.
+Step 2. If requested object is in browser cache and is fresh, move on to Step  8.
+Step 3. DNS lookup to find the ip address of the server
+when we want to connect to google.com, we actually want to reach out to a server where google web services are hosted.
+Google has multiple servers in multiple locations to cater to the huge volume of requests they receive per second. 
+Thus we should let Google decide which server is best suited to our needs. 
+Using "google.com" does the job for us. When we type "google.com",DNS(Domain Name System) 
+services comes into play and resolves the URL to a proper ip address. 
+
+Step 4. Browser initiates a TCP connection with the server.
+Step 5. Browser sends a HTTP request to the server.
+Step 6. Server handles the incoming request
+Step 7. Browser receives the HTTP response
+Step 8. Browsers displays the html content
+Step 9. Client interaction with server
+Step 10. AJAX queries
+
+

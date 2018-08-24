@@ -15,3 +15,6 @@ class Solution:
 					p += x
 			x += 1
 		return sum(isPrime)
+
+另一道题叫prime factor也常考，代码见：
+https://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/
