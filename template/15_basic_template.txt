@@ -20,7 +20,7 @@ Separate chaining
 Open addressing
 存pointer to linked list，1 pointer = 4 bytes 
 3.tcp/ip 有几层:
-5层
+4层
 Application layer(SMTP, FTP, SSH, HTTP)
 Transport layer(UDP,TCP) TCP失败会重发，但是UDP发了就不管了
 Internet layer(IPV4,IPV6)
