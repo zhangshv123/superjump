@@ -23,9 +23,30 @@ Return ["eat","oath"].
 #时间复杂度从O(row*col*len(dictWords)4^max(len(dictWords[x]))到
 #O(row*col*4^max(len(dictWords[x]))
 import sets
+class TrieNode(object):
+	def __init__(self):
+		"""
+		Initialize your data structure here.
+		"""
+		self.children = {}
+		self.isWord = False
+		
 class Solution(object): 
-	directions = [-1,0],[0,-1],[0,1],[1,0]
-	def getValidWords(self, matrix, words):
+	def buildTrie(self, words):
+		"""
+		:type board: List[str]
+		:rtype:TrieNode
+		"""
+		root = TrieNode()
+		for word in words:
+			node = root
+			for c in word:
+				if c not in node.children:
+					node.children[c] = TrieNode()
+				node = node.children[c]
+			node.isWord = True
+		return root
+	def findWords(self, matrix, words):
 		"""
 		:type board: List[List[str]]
 		:type words: List[str]
@@ -35,18 +56,21 @@ class Solution(object):
 		row = len(matrix)
 		col = len(matrix[0])
 		res = []
-		visited = []
+		visited = set()
 		
 		for i in range(row):
 			for j in range(col):
 				if matrix[i][j] in root.children:
-					self.dfs(matrix,i,j,root.children[matrix[i][j]], visited, res, matrix[i][j])
-		return res
+					visited.add((i,j))
+					self.dfs(matrix,i, j, root.children[matrix[i][j]], visited, res, matrix[i][j])
+					visited.pop()
+		return list(set(res))
 
 	
-	def dfs(self,matrix, x, y, trie, visited,res,path): #find the next point from (x,y) to match this trie node
+	def dfs(self,matrix, x, y, trie, visited, res,path): #find the next point from (x,y) to match this trie node
 		if trie.isWord:
 			res.append(path[:])
+		directions = [-1,0],[0,-1],[0,1],[1,0]
 		for direction in directions:
 			new_x = x + direction[0]
 			new_y = y + direction[1]
@@ -59,11 +83,11 @@ class Solution(object):
 				continue
 
 			path = path + (matrix[new_x][new_y])
-			visited.append((x, y))
+			visited.add((new_x, new_y))
 
 			self.dfs(matrix, new_x, new_y, trie.children[matrix[new_x][new_y]], visited, res, path)
 
-			visited.pop()
+			visited.remove((new_x, new_y)) #注意这里不能用pop!hashtable和set只有add, remove. stack, queue只有push和pop!
 			path = path[:-1]
 					
 	

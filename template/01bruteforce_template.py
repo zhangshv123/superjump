@@ -15,6 +15,9 @@ def dfs(n, idx, res, path, possible):
 		path.append(pos)
 		dfs(n, idx+1, res, path, possible)
 		path.pop()
+		
+这道题其实idx没有直接用到，所以第10行可以变成“if len(path) == n:“
+idx保留在这里因为万一其他题目用得上
 
 print printN(2)
 	
