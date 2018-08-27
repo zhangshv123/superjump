@@ -28,3 +28,30 @@ def dfs(n, m, res, path):
 		path.pop()
 	
 print permutation(3, 2)
+
+如果存在duplicate:
+path里面就不能存结果了,而要存index
+然后判断的时候，如果nums[i] == nums[i-1] and nums[i-1] 还没有被用过，那就不能用nums[i]
+
+def permutation(nums, m):
+	res = []
+	dfs(nums, m, res, [])
+	return res
+	
+def dfs(nums, m, res, path):
+	if len(path) == m:
+		new_temp = []
+		for idx in path:
+			new_temp.append(nums[idx])
+		res.append(new_temp[:])
+		return
+	
+	for i in range(len(nums)):
+		if i in path:
+			continue
+		if i >= 1 and nums[i] == nums[i-1] and i-1 not in visited:
+			continue
+		path.append(i)
+		dfs(nums, m, res, path)
+		path.pop()
+
