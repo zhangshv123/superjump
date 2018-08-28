@@ -49,7 +49,6 @@ class Solution(object):
         res = None
         if p.right:
             return self.minValue(p.right)
-        res = None
         while root:
             if root.val > p.val:
                 res = root

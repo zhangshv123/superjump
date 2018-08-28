@@ -26,16 +26,17 @@ import sys
 #         self.left = None
 #         self.right = None
 
+import sys
 class Solution(object):
-    def isValidBST_helper(self, root, minVal, maxVal):
-        if root is None:
-            return True
-        return root.val > minVal and root.val < maxVal and self.isValidBST_helper(root.left, minVal, root.val) and self.isValidBST_helper(root.right, root.val, maxVal)
-    def isValidBST(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
-        return self.isValidBST_helper(root, -sys.maxint, sys.maxint)
+  def isValidBST(self, root):
+    return self.helper(root, -sys.maxint, sys.maxint)
+  
+  def helper(self, root, minValue, maxValue):
+    if not root:
+      return True
+    
+    return root.val > minValue and root.val < maxValue and self.helper(root.left, minValue, root.val) and self.helper(root.right, root.val, maxValue)
+
+
 
   

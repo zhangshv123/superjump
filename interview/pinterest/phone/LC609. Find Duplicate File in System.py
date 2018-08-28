@@ -40,7 +40,7 @@ and so on.
 There might be false positive duplicates, because two different files might share the same checkSum.
 3.If you can only read the file by 1kb each time, how will you modify your solution?
 
-那就每读进来1kb的数据，做一次MD5吧，最后把所有的MD5结果生成一个向量，或者再次MD5，用最终结果来作为哈希表的key。
+那就每读进来1kb的数据，做一次MD5吧，然后和上一个md5结果做XOR操作。最后把所有的MD5结果生成一个向量，或者再次MD5，用最终结果来作为哈希表的key。
 we could read the meta data instead of the entire file, and compare the information KB by KB.
 
 4.What is the time complexity of your modified solution? What is the most time-consuming part and memory consuming part of it? How to optimize?
@@ -56,5 +56,15 @@ we could read the meta data instead of the entire file, and compare the informat
 Using checkSum, we could quickly and accurately find out the non-duplicated files. 
 But to totally avoid getting the false positive, we need to compare the content chunk by chunk 
 when we find two "duplicates" using checkSum.
-
-
+# dropbox的follow up
+6.what if there are many video files, how do you optimize the solution in terms of performance
+veio file代表size很大，所以就用MD5 来hash content
+7.what is the slowest part of the entire algorithm. 
+读取每个文件的content和hash
+8.what's the characteristics of hash functions like md5, sha1, sha256.
+都能hash content to fix length, md5 < sha1 < sha256, collition的可能性相反
+9.what is the possible problems of using dfs to obtaining all files of file system
+用DFS搜索时，如果文件深度太深，那么可能会需要占用较大的内存栈空间；
+10.what problem may exist if comparing only a small chunks of file
+出现false positive的情况
+11.hash function在什么情况下efficient，什么情况下很垃圾。。

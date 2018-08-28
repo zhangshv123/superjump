@@ -20,3 +20,5 @@ class Solution(object):
 			res.append(cur.val)
 			cur = cur.right
 		return res
+
+

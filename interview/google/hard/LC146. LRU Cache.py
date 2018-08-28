@@ -78,6 +78,7 @@ class LRUCache:
         self.removeNode(node)
         self.addNode(node)    
         
+    #总是remove tail 之前的东西
     def popTail(self):
         res = self.tail.prev
         self.removeNode(res)

@@ -59,7 +59,9 @@ class Solution(object):
             return left
 
 
-鑫鑫的non-recursive版本
+鑫鑫的non-recursive版本：
+stack存的分别是：[current node, is_left_done, is_right_done, leftNode, rightNode]
+ret代表原来recursive 版本的返回值
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
         stk = []
@@ -70,18 +72,18 @@ class Solution(object):
                 ret = curr[0]
                 stk.pop()
                 if len(stk)>0:
-                    if not stk[-1][1]:
+                    if not stk[-1][1]: #如果左边没有做完，is_left_done = False的话
                         stk[-1][1] = True
-                    else:
+                    else: #说明左边做完了，那就是右边没有做完，is_right_done = False的话
                         stk[-1][2] = True                
                 continue
-            if not curr[1]:
+            if not curr[1]: #如果左边没有做完,我们就左边，初始化都是false和None,代表新的节点(curr[0].left)左右节点都还没做过，返回的也都是None
                 stk.append([curr[0].left, False, False, None, None])
-            elif not curr[2]:
+            elif not curr[2]: #说明左边做完了，那就是右边,那左边返回letNode = ret
                 curr[3] = ret
                 stk.append([curr[0].right, False, False, None, None])
-            else:
-                curr[4] = ret
+            else: #左右2边都做完了
+                curr[4] = ret #先更新右边节点
                 left, right = curr[3], curr[4]
                 if left and right:
                     ret = curr[0]
@@ -92,7 +94,7 @@ class Solution(object):
                 stk.pop()
                 if len(stk)>0:
                     if not stk[-1][1]:
-                        stk[-1][1] = True
+                        stk[-1][1] = True #告诉parent节点，它的左右都已经做过了
                     else:
                         stk[-1][2] = True
         return ret

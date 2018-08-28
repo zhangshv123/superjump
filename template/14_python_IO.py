@@ -1,5 +1,5 @@
 1 char = 1 byte = 8 bits
-1 int = 4 char
+1 integer = 4 byte
 先写最原始的版本：
 
 b = bytearray("test", encoding="utf-8") # 把string“test”变成一个byteArray

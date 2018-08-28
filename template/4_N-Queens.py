@@ -11,7 +11,7 @@ class Solution(object):
 			return
 			
 		for j in range(n):
-			if isValid(path, row, j): #合理才会放进去 
+			if isValid(row, j, path): #合理才会放进去 
 				path.append((row,j))
 				self.dfs(row+1, n, path, res)
 				path.pop()
