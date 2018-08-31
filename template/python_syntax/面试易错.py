@@ -43,7 +43,7 @@ pin3 = pin(3,150)
 
 7. set的方法：
 https://www.programiz.com/python-programming/methods/set/remove
-set只用add和remove，不要用什POP!
+set只用add和remove，不要用什么POP!
 
 8.defauldict
 参见

@@ -67,7 +67,7 @@ class Solution(object):
 		return list(set(res))
 
 	
-	def dfs(self,matrix, x, y, trie, visited, res,path): #find the next point from (x,y) to match this trie node
+	def dfs(self,matrix, x, y, trie, visited, res, path): #find the next point from (x,y) to match this trie node
 		if trie.isWord:
 			res.append(path[:])
 		directions = [-1,0],[0,-1],[0,1],[1,0]
