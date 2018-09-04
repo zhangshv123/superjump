@@ -32,7 +32,7 @@ class MinStack(object):
         :rtype: void
         """
         self.stk.append(x)
-        if len(self.minStack) == 0 or x <= self.minStack[-1]:
+        if len(self.minStack) == 0 or x <= self.minStack[-1]: #如果等于最小的也再次放进去
             self.minStack.append(x)
 
     def pop(self):

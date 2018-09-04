@@ -28,6 +28,7 @@ top solution, just use naive 3 for loop
 YY的follow up:
 不管input是leetcode的矩阵,还是（x,y,val）代表所有非0的节点，
 都转化成邻接表 adjact list
+https://www.cnblogs.com/XMU-hcq/p/6065057.html
 [[(1,1)],[],[]]
 对于A：
 for i in range(n):
