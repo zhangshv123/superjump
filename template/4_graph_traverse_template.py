@@ -37,11 +37,11 @@ def findCluster(matrix):
 	
 
 def dfs(matrix, cur, visited, cp): # traversal
-	for i in range(len(matrix)):
-		if matrix[cur][i] == 1 and i not in visited:
-			cp.append(i)
-			visited.add(i)
-			dfs(matrix, i, visited, cp)
+	for j in range(len(matrix)):
+		if matrix[cur][j] == 1 and j not in visited:
+			cp.append(j)
+			visited.add(j)
+			dfs(matrix, j, visited, cp)
 			
 			
 print findCluster([[0,1,0,0,0],[1,0,1,0,0],[0,1,0,0,0],[0,0,0,0,1],[0,0,0,1,0]])

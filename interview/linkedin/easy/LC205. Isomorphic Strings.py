@@ -30,6 +30,29 @@ s     t
 1   \     not ok
        1
 """
+最简单的模式，把2边都翻译成一种语言，然后看是否一样就可以了,和LC290一模一样
+from collections import defaultdict
+class Solution(object):
+    def isIsomorphic(self, words):
+        out_d = defaultdict(list)
+        for word in words:
+            count = 0
+            pattern = ""
+            d = dict()
+            for i in range(len(word)):
+                if word[i] not in d:
+                    d[word[i]] = count
+                    count += 1
+                pattern += str(d[word[i]])
+            out_d[pattern].append(word)
+        res = []
+        for key in out_d.keys():
+            res.append(out_d[key])
+        return res     
+s = Solution()
+print s.isIsomorphic(["foo", "bar", "baz", "qux", "oof", "aaa", "aah", "abb" , "aba"]) 
+print s.isIsomorphic(["foo", "abb"]) 
+
 class Solution(object):
     def isIsomorphic(self, s, t):
         """
@@ -46,3 +69,16 @@ class Solution(object):
                     return False
         values = replace_map.values()
         return len(set(values)) == len(values) #代表是一一对应！没有多对一的情况
+
+linkedin follow up:
+如果给一个list of words
+1.check是是不是所有的words都是isomorphic的：
+第一个很简单，repeating 2-word solution for each consecutive pair of words 
+2.是不是any two words是isomorphic的？
+3.给list of words，make isomorphic groups
+比方说：
+words = {"foo", "bar", "baz", "qux", "oof", "aaa", "aah", "abb" , "aba"}
+expected output:
+[[aaa], [aba], [abb, foo], [bar, qux, baz], [oof, aah]]
+就是用最简单的方案！最好！
+
