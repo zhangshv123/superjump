@@ -1,4 +1,3 @@
-#!/usr/bin/python
 class Solution(object):
 	def solveNQueens(self, n):
 		res = []

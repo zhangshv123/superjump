@@ -1,5 +1,5 @@
 思路:
-跟minstack那道题非常像，唯一
+跟minstack那道题非常像，唯一不同的就只有popmax()函数
 使用两个栈来模拟，s1为普通的栈，用来保存所有的数字，而s2为最大栈，用来保存出现的最大的数字。
 
 在push()函数中，只有当minstack为空，或者x<=minstack才会放x进去mintack
@@ -47,9 +47,7 @@ class MaxStack(object):
 		"""
 		:rtype: int
 		"""
-		if len(self.maxStack) > 0:
-			return self.maxStack[-1]
-		return self.top()
+		return self.maxStack[-1]
 		
 	def popMax(self):
 		"""
@@ -87,3 +85,8 @@ print obj.top()
 #print obj.popMax()	
 #print obj.popMax()
 #print obj.top()
+linkedin follow up:
+implement 一个getMaxSum的方法，return stack里面所有正数的和 at any given time:
+维护一个全局变量，push的时候，如果是正数，就加进去，负数就是0
+
+
