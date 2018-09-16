@@ -1,6 +1,6 @@
 import heapq
 n个array,每个array有k个num
-Time:0(kn)因为每个element用一次
+Time:knlog(k)因为每个element用一次
 import heapq
 def kMerge(arrs):
 	h = []

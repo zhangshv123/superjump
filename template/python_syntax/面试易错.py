@@ -30,7 +30,7 @@ class Solution(object):
 		
 6.初始化object的方式
 看resize_page.py
-class pin:
+class pin(object):
 	def __init__(self, id = 0, height = 0):
 		self.id = id
 		self.height = height
