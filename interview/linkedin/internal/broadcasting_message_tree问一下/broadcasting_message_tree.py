@@ -1,7 +1,8 @@
 思路：
 如果是叶子节点，返回0
 如果不是叶子节点，就把children的时间降序排列，然后选max的+i+1
-时间
+时间复杂度：O(nlogn)
+空间：O(n)
 class TreeNode(object):
 	def __init__(self, id, arr):
 		self.id = id
