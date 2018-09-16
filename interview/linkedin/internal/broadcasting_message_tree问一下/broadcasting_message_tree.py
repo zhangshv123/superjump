@@ -36,6 +36,23 @@ node1 = TreeNode(1, [node2, node3])
 
 s = Solution()
 print s.mainMethod(node1)
+
+linkedin follow up:
+把每步的情况打印出来
+比如：
+      A
+     /  \
+    B     C
+   / \   /
+  D   E  F
+
+输出
+time(in second) transfer
+1                 A->B
+2                 A->B, C->F
+3                 B->D
+4                 B->E
+
 	
 		
 		
