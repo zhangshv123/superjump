@@ -19,8 +19,10 @@ Sharing
 
 id p_id user_id
 
-
 尽量不要有冗余信息
+
+具体的SQL复习请看这里：
+http://www.runoob.com/sql/sql-groupby.html
 
 
 

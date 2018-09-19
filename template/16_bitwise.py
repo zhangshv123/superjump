@@ -1,12 +1,11 @@
 1 char = 1 byte = 8 bits
-1 integer = 4 byte
-整数是
-32 bit = 4 bytes = 1 integer
+1 integer(整数) = 4 byte = 32 bits
+
 
 所以array长度<= 32都可以用一个整数来代替
 01010000......
 这里0可以代表false, 1 代表true
-把第n位为从0变成1和从1变成0都可以用XOR
+把第n位为从0变成1和从1变成0都可以用XOR 1
 mask = mask^(1<<n)
 
 

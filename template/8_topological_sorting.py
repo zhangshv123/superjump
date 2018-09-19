@@ -1,6 +1,8 @@
 1.collect in-degree
 2.put all nodes that indegree = 0 into queue
 3.bfs
+[0,1]必须先take 1 再take 0
+1 -> 0
 #返回 排好序的答案
 from collections import defaultdict
 from collections import deque

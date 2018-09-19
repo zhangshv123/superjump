@@ -18,7 +18,7 @@ https://en.wikipedia.org/wiki/Hash_table
 里面的：
 Separate chaining(with likedin list)
 Open addressing(找到下一个空的)
-存pointer to linked list，1 pointer = 4 bytes 
+存pointer to linked list，1 pointer = 4 bytes = 1 interger
 3.tcp/ip 有几层:
 4层
 Application layer(SMTP, FTP, SSH, HTTP网络协议)

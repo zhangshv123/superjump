@@ -97,7 +97,8 @@ board =[
 	['A','D','E','E']]
 	
 words = ["ABCCED", "SEE", "ABCB","ABC"]
-print getValidWords(board, words)
+s = Solution()
+print s.findWords(board, words)
 	
 	
 						
