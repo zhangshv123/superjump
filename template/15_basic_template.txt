@@ -51,3 +51,28 @@ Step 9. Client interaction with server
 Step 10. AJAX queries
 
 
+5.注意注意java多态的用法：
+例题：
+一个Photo Object
+一个Photos Object 有getPhotos返回 list of photo
+然后有个updatePhotos方法
+photos = new Photos()
+list[]Photo  photoList= photos.getPhotos()
+for photo in photoList:
+   photo.updatePhoto()
+ 
+要求reuse这个updatePhotos到其他类型的object
+答案：
+建2个interface，现在abstract class都淘汰了
+interface assets {
+}
+interface asset{
+	void update()
+}
+
+class Photo implements asset {
+	
+}
+
+
+
