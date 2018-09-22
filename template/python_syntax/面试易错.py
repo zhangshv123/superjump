@@ -51,4 +51,10 @@ http://tinyurl.com/ybprpfko
 When each key is encountered for the first time, it is not already in the mapping; so an entry is automatically created using the default_factory function which returns an empty list. The list.append() operation then attaches the value to the new list. When keys are encountered again, the look-up proceeds normally (returning the list for that key) and the list.append() operation adds another value to the list. 
 
 9.初始化2维DP
-dp = [[None for _ in range(size)] for _ in range(size)] 
+dp = [[0 for _ in range(size)] for _ in range(size)] 
+一定不能用其他方法初始化！
+
+10.print是自动换行的，如果想不换行就加逗号
+print "a",
+print "b"
+结果： a b
