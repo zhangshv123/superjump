@@ -1,62 +1,25 @@
-"""
-
-You are given an n x n 2D matrix representing an image.
-
-Rotate the image by 90 degrees (clockwise).
-
-Note:
-You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
-
-Example 1:
-
-Given input matrix = 
-[
-  [1,2,3],
-  [4,5,6],
-  [7,8,9]
-],
-
-rotate the input matrix in-place such that it becomes:
-[
-  [7,4,1],
-  [8,5,2],
-  [9,6,3]
-]
-Example 2:
-
-Given input matrix =
-[
-  [ 5, 1, 9,11],
-  [ 2, 4, 8,10],
-  [13, 3, 6, 7],
-  [15,14,12,16]
-], 
-
-rotate the input matrix in-place such that it becomes:
-[
-  [15,13, 2, 5],
-  [14, 3, 4, 1],
-  [12, 6, 8, 9],
-  [16, 7,10,11]
-]
-"""
-"""
- * clockwise rotate
- * first reverse up to down, then swap the symmetry 
- * 1 2 3     7 8 9     7 4 1
- * 4 5 6  => 4 5 6  => 8 5 2
- * 7 8 9     1 2 3     9 6 3
-"""
+思路：
+先按照对角线交换值, matrix[x][y]和matrix[y][x]
+然后再同一行左右交换！
 class Solution(object):
-    def rotate(self, matrix):
-        """
-        :type matrix: List[List[int]]
-        :rtype: void Do not return anything, modify matrix in-place instead.
-        """
-        M, N = len(matrix), len(matrix[0])
-        matrix.reverse()
-        for i in range(M):
-            for j in range(i + 1, N):
-                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
-        
-            
+	def rotate(self, matrix):
+		n = len(matrix)
+		for x in range(n):
+			for y in range(x):
+				matrix[x][y], matrix[y][x] = matrix[y][x], matrix[x][y]
+		
+		for x in range(n):
+			l,r = 0, n-1
+			while l < r:
+				matrix[x][l], matrix[x][r] = matrix[x][r], matrix[x][l]
+				l += 1
+				r -= 1
+		for i in range(n): #注意这里尽量写成这样！
+			for j in range(n):
+				print str(matrix[i][j]) + " ", #这里逗号表示不要换行
+			print #print是自动换行的
+		return
+
+s = Solution()
+s.rotate([[1,2,3],[4,5,6],[7,8,9]])
+
