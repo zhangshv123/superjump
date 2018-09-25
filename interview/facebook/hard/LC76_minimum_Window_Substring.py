@@ -39,8 +39,8 @@ f: min(g(0->n-1))
 外层指针依然是依次遍历
 内层指针证明是否需要回退
 
-当存在sol，通过移动右指针找最优sol
-当不存在sol，通过移动左指针达到sol
+当存在sol，通过移动左指针找最优sol
+当不存在sol，通过移动右指针达到sol
 """
 #FB说时间复杂度 O(2n + m)worst case，意思是还要考虑把mapT元素加进去的时间
 from collections import defaultdict
@@ -69,4 +69,9 @@ class Solution(object):
                 left += 1
             right += 1
         return res if res != s + t else ""
-                
+
+linkedin的follow up
+1.如果有几个这样的substring存在，就要那个have more keywords的
+2.每个keyword的weight不同，prefer substrings of a bigger weight
+第一问和第二问一模一样，只是多一个变量maxScore，64行首先比长度，长度更短直接更新，如果长度一样，就计算一下score.
+
