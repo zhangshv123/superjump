@@ -12,24 +12,20 @@ top solution, just naive is enough
 """
 class Solution(object):
     def addBinary(self, a, b):
-        """
-        :type a: str
-        :type b: str
-        :rtype: str
-        """
-        res, carry = [], 0
-        i, j = len(a) - 1, len(b) - 1
+        res = ""
+        size1, size2 = len(a), len(b)
+        i, j, carry = size1 - 1, size2 - 1, 0
         while i >= 0 or j >= 0:
-            na = i >= 0 and a[i] == "1"
-            nb = j >= 0 and b[j] == "1"
+            x = int(a[i]) if i >=0 else 0
+            y = int(b[j]) if j >=0 else 0
+            total = x + y + carry
+            res += str(total%2)
+            carry = total/2
             i -= 1
             j -= 1
-            temp = na + nb + carry
-            res.append(str(int(temp % 2)))
-            carry = int(temp / 2)
         if carry != 0:
-            res.append(str(carry))
-        return "".join(reversed(res))
+            res += str(carry)
+        return res[::-1]
 
 
 class Solution(object):
