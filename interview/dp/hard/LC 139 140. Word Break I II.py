@@ -10,7 +10,7 @@ dict = ["leet", "code"].
 Return true because "leetcode" can be segmented as "leet code".
 """
 #139 middle 题目
-
+dp[i]代表以i为结尾的(包含i)是不是true
 class Solution(object):
     def wordBreak(self, s, wordDict):
         """

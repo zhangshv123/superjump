@@ -14,7 +14,7 @@ class Solution(object):
         :rtype: int
         """
         total, res, d = 0, 0, defaultdict(int)
-        d[0] = 1
+        d[0] = 1 #代表和是1的有一种
         for num in nums:
             total += num
             res += d[total - k]

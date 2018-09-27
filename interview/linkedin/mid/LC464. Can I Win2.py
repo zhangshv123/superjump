@@ -7,7 +7,7 @@ main function:
 	return dfs(N,[],M)
 
 时间复杂度：
-从N^N 优化到2^N
+从N^N（排列) 优化到2^N(组合)
 
 from collections import defaultdict
 class Solution(object):

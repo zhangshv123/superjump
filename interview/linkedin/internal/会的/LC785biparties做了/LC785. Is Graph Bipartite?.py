@@ -1,5 +1,6 @@
 思路：用BFS
 注意bi-party的定义！有些点是孤立的，那么它们在哪个party都可以
+这里相当于涂色，把cur点涂成0，那么和它相连的点就是1
 时间复杂度： O(n) 因为就是遍历
 from collections import deque
 class Solution(object):

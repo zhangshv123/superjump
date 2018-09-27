@@ -26,43 +26,26 @@ class Solution(object):
 			else:
 				list2.append(dw[word])
 		return list1 == list2
-
-
-这道题超容易错！必须2边隐射好才可以，并且注意第14行，一定是if，不是elif，因为要马上检查！
+或者和LC205一样做的做法：
 class Solution(object):
-	def wordPattern(self, pattern, str):
-		dc, dw = dict(), dict()
-		str = str.split(" ")
-		if len(pattern) != len(str):
+	def wordPattern(self, s, str):
+		"""
+		:type s: str
+		:type t: str
+		:rtype: bool
+		"""
+		t = str.split(" ")
+		if len(s) != len(t):
 			return False
-		for i,char in enumerate(pattern):
-			if str[i] not in dw:
-				dw[str[i]] = char
-			if char not in dc:
-				dc[char] = str[i]
-			if dw[str[i]] != char or dc[char] != str[i]: #第14行
-				return False
-		return True
-
-或者一个dictionary的方法：
-class Solution(object):
-	def wordPattern(self, pattern, str):
-		d = dict()
-		str = str.split(" ")
-
-		if len(pattern) != len(str):
-			return False
-
-		for i,char in enumerate(pattern):
-			if char in d:
-				if d[char] != str[i]:
-					return False
+		replace_map = {}
+		for i in range(len(s)):
+			if s[i] not in replace_map:
+				replace_map[s[i]] = t[i]
 			else:
-				if str[i] in d.values(): #value已经存在了，说明是其他p放进来的，错！
+				if replace_map[s[i]] != t[i]:
 					return False
-				d[char] = str[i] #说明key不在d，value也不在d，就直接加进去
-		return True
-
+		values = replace_map.values()
+		return len(set(values)) == len(values)
 
 s = Solution()
 print s.wordPattern("abba", "dog dog dog dog")

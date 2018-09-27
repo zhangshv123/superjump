@@ -38,7 +38,7 @@ class Solution(object):
 				dp[i+1] = num
 		return len(dp)-1
 	
-	def bs(self, nums, target):#返回比自己小的最后位置[1,2,4,5]找3，会返回2
+	def bs(self, nums, target):#返回比自己小的最后位置[1,2,2,4,5]找3，会返回2,如果找到了，就返回第一个位置，比如找2，返回1
 		if len(nums) == 0:
 			return -1
 			

@@ -49,7 +49,6 @@ class RandomizedSet(object):
 		:rtype: int
 		"""
 		idx = randint(0, len(self.dataList)-1)
-		print self.map,self.dataList
 		return self.dataList[idx]
 
 # Init an empty set.

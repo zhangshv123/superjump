@@ -3,9 +3,9 @@
 #n is an array of [1, 2, ..., n]
 #choose m from n, order do not matter
 
-def combination(n, m):
+def combination(arr, m):
 	res = []
-	dfs(n, m, res, [], 0)
+	dfs(arr, m, res, [], 0)
 	return res
 	
 def dfs(n, m, res, path, index):
@@ -20,11 +20,13 @@ def dfs(n, m, res, path, index):
 		res.append(path[:])
 		return
 	
-	for i in range(index,n):
-		path.append(i)
-		dfs(n, m, res, path, i+1)
+	for i in range(index,len(arr)):
+		path.append(arr[i])
+		dfs(arr, m, res, path, i+1)
 		path.pop()
-	
-print combination(3, 2)
+
+print combination([1, 2, 3], 2)
+返回
+[[1, 2], [1, 3], [2, 3]]
 
 
