@@ -1,6 +1,7 @@
 思路：
 如果是叶子节点，返回0
 如果不是叶子节点，就把children的时间降序排列，然后选max的+i+1
+n是number of nodes in tree
 时间复杂度：O(nlogn)
 空间：O(n)
 class TreeNode(object):
@@ -40,8 +41,8 @@ print s.mainMethod(node1)
 linkedin follow up:
 把每步的情况打印出来
 比如：
-      A
-     /  \
+       A
+     /   \
     B     C
    / \   /
   D   E  F
