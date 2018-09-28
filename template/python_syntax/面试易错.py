@@ -61,3 +61,7 @@ print "b"
 
 11.throw exception in python:
 raise Exception('I know Python!') # Don't! If you catch, likely to hide bugs.
+
+12. .sort和sorted的区别：
+sorted() returns a new sorted list, leaving the original list unaffected. 
+list.sort() sorts the list in-place, mutating the list indices, and returns None (like all in-place operations).
