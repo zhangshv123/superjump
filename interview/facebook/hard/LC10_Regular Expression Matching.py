@@ -28,42 +28,7 @@ isMatch("aab", "c*a*b") → true
 a)匹配0个
 b)匹配一个->f(j, i - 1),而f(j, i - 1) 已经推过保证是正确的，所以不用再去看f(j, i - 2)。。。。
 """
-class Solution(object):
-    def isMatch(self, s, p):
-        """
-        :type s: str
-        :type p: str
-        :rtype: bool
-        """
-        m, n = len(s), len(p)
-        f = [[False for _ in range(n + 1)] for _ in range(m + 1)]
-        for i in range(m + 1):
-            for j in range(n + 1):
-                if i == 0 and j == 0:
-                    f[i][j] = True
-                elif i >= 1 and j == 0:
-                    f[i][j] = False
-                elif i == 0 and j == 1:
-                    f[i][j] = False
-                elif i == 0 and j >= 2:
-                    if p[j - 1] == "*":
-                        f[i][j] = f[i][j - 2]
-                    else:
-                        f[i][j] = False
-                else:
-                    if p[j - 1] in [".", s[i - 1]]:
-                        f[i][j] = f[i - 1][j - 1]
-                    elif p[j - 1] == "*":
-                        if j == 1:
-                            f[i][j] = False
-                        else:
-                            #match 0
-                            f[i][j] |= f[i][j - 2]
-                            #only need to match 1, since previous will recursively check, dp must be atomic behavour
-                            if p[j - 2] in [".", s[i - 1]]:
-                                f[i][j] |= f[i - 1][j]
-        return f[m][n]
-#dp        
+#dp
 class Solution(object):
     def isMatch(self, s, p):
         """
@@ -75,11 +40,11 @@ class Solution(object):
         dp = [[ False for i in range(n + 1)] for j in range(m + 1)]
         for j in range(n+1):
             for i in range(m+1):
-                if j == 0 and i == 0:
+                if j == 0 and i == 0:   #dp[0][0] = True
                     dp[i][j] = True
-                elif i <= m and j == 0:
+                elif i <= m and j == 0:   #dp[i][0] = False
                     dp[i][j] == False
-                elif j <= n and i == 0:
+                elif j <= n and i == 0:  #dp[0][j] 的情况
                     if p[j-1] == "*":
                         dp[0][j] = dp[0][j-2]
                     else:
