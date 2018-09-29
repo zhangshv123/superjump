@@ -4,6 +4,7 @@
 n是number of nodes in tree
 时间复杂度：O(nlogn)
 空间：O(n)
+from collections import defaultdict
 class TreeNode(object):
 	def __init__(self, id, arr):
 		self.id = id
@@ -13,17 +14,19 @@ class TreeNode(object):
 class Solution(object):
 	def computeTransmissionTime(self, root):
 		if not root or not root.children:
-			return 0
+			return
 		children = root.children
 		for child in children:
 			self.computeTransmissionTime(child)
+			
 		children.sort(key = lambda x: x.transmissionTime, reverse = True)
-		minTransmissionTime = 0
+		m = 0
 		for i in range(len(children)):
-			minTransmissionTime = max(minTransmissionTime, children[i].transmissionTime + i + 1)
-		root.transmissionTime = minTransmissionTime
+			m = max(children[i].transmissionTime + i + 1, m)
+		root.transmissionTime = m
 		return
 	def mainMethod(self, root):
+		d = defaultdict(list)
 		self.computeTransmissionTime(root)
 		return root.transmissionTime
 
@@ -71,7 +74,7 @@ class TreeNode(object):
 		self.id = id
 		self.children = arr
 		self.transmissionTime = 0
-		self.steps = defaultdict(list) #新加的
+		self.steps = []
 
 class Solution(object):
 	def computeTransmissionTime(self, root):
@@ -80,15 +83,17 @@ class Solution(object):
 		children = root.children
 		for child in children:
 			self.computeTransmissionTime(child)
+			
 		children.sort(key = lambda x: x.transmissionTime, reverse = True)
-		minTransmissionTime = 0
+		m = 0
 		for i in range(len(children)):
-			root.steps[i].append(str(root.id) + "->" + str(children[i].id)) #新加的
-			for item in children[i].steps.items():
-				new_key = item[0]+ i + 1 #新加的
-				root.steps[new_key].extend(item[1]) #新加的
-			minTransmissionTime = max(minTransmissionTime, children[i].transmissionTime + i + 1)
-		root.transmissionTime = minTransmissionTime
+			m = max(children[i].transmissionTime + i + 1, m)
+		root.transmissionTime = m
+		root.steps = [[] for i in range(m)]
+		for i in range(len(children)):
+			root.steps[i].extend(['{}->{}'.format(root.id, children[i].id)])
+			for j in range(len(children[i].steps)):
+				root.steps[i + j + 1].extend(children[i].steps[j])
 		return
 	def mainMethod(self, root):
 		d = defaultdict(list)
