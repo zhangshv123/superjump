@@ -8,6 +8,8 @@ main function:
 
 时间复杂度：
 从N^N（排列) 优化到2^N(组合)
+因为这道题不会超过32个数字，所以我们用一个integer(初始化是0，代表32位都没有被选过)0来表示
+d来存在当前这种visited的形式下，当前这个Player 是不是必胜！
 
 from collections import defaultdict
 class Solution(object):
