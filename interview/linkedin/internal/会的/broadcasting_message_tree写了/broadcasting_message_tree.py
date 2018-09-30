@@ -74,7 +74,9 @@ class TreeNode(object):
 		self.id = id
 		self.children = arr
 		self.transmissionTime = 0
-		self.steps = []
+		self.steps = [] #是一个list of list
+	比如对于（4），返回的[["4" -> "7"],["4" -> "8"], ["4" -> "9"]]
+	代表对于结点4，第0秒做idx0的，第1秒做idx1的
 
 class Solution(object):
 	def computeTransmissionTime(self, root):
