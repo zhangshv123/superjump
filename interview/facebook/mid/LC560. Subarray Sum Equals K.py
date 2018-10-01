@@ -14,9 +14,12 @@ class Solution(object):
         :rtype: int
         """
         total, res, d = 0, 0, defaultdict(int)
-        d[0] = 1 #代表和是1的有一种
+        d[0] = 1 #代表和是0的有一种
         for num in nums:
             total += num
             res += d[total - k]
             d[total] += 1
         return res
+
+linkedin follow up：
+对于像[0...0]这样的array， res可能会非常大，所以return type可能是long不一定是int
