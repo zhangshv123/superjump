@@ -1,5 +1,11 @@
 思路：dp[i][j]代表不一定包含i或者j的，当前最长的回文长度
 时间复杂度：N平方
+推到公式是:
+	dp[i][i] = 1
+	如果s[i] == s[j]:
+		dp[i][j] = dp[i+1][j-1] + 2
+	不相等则：
+		dp[i][j] = max(dp[i+1][j], dp[i][j-1])
 class Solution(object):
 	def longestPalindromeSubseq(self, s):
 		n = len(s)
