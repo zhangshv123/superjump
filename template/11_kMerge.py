@@ -1,5 +1,5 @@
 import heapq
-n个array,每个array有k个num
+假设总共有k个list，每个list的最大长度是n
 Time:knlog(k)因为每个element用一次
 import heapq
 def kMerge(arrs):
