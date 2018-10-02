@@ -9,12 +9,6 @@ class TreeNode(object):
 		self.val = x
 		self.left = None
 		self.right = None
-from collections import defaultdict,deque
-class TreeNode(object):
-	def __init__(self, x):
-		self.val = x
-		self.left = None
-		self.right = None
 class Solution(object):
 	start = None
 	def findClosestLeaf(self, root, k):
@@ -60,5 +54,8 @@ root = TreeNode(1)
 #root.right.right = TreeNode(7)
 
 s = Solution()
-print s.findClosestLeaf(root, 1)    		
+print s.findClosestLeaf(root, 1)   
+
+linkedin follow up:
+	find all K distance nodes  		
 		
