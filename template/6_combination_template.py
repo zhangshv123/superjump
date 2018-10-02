@@ -8,7 +8,7 @@ def combination(arr, m):
 	dfs(arr, m, res, [], 0)
 	return res
 	
-def dfs(n, m, res, path, index):
+def dfs(arr, m, res, path, index):
 	# clear your definition
 	# n = 10, m = 5, res = [...], path = [0, 3, 5], index = 8
 #	step 1: pick new i from(index,n)选一个新的螺丝
