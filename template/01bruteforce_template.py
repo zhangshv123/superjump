@@ -7,7 +7,7 @@ def printN(n):
 	return res
 
 def dfs(n, idx, res, path, possible):
-	if idx == n:
+	if idx == n: #第10行
 		res.append(path[:])
 		return
 	
