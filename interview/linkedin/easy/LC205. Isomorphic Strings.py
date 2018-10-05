@@ -45,10 +45,7 @@ class Solution(object):
                     count += 1
                 pattern += str(d[word[i]])
             out_d[pattern].append(word)
-        res = []
-        for key in out_d.keys():
-            res.append(out_d[key])
-        return res     
+        return out_d.values()     
 s = Solution()
 print s.isIsomorphic(["foo", "bar", "baz", "qux", "oof", "aaa", "aah", "abb" , "aba"]) 
 print s.isIsomorphic(["foo", "abb"]) 

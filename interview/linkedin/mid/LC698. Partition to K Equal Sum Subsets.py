@@ -35,3 +35,33 @@ class Solution(object):
                     return True
                 visited[i] = 0
         return False
+
+class Solution(object):
+    def canPartitionKSubsets(self, nums, k):
+        total = sum(nums)
+        if total % k != 0:
+            return False
+        target = total/k
+        sumArr = [0 for i in range(k)]
+        full = set()
+        return self.dfs(nums, k, target, sumArr, 0)
+    
+    # return true if exists 
+    def dfs(self, nums, k, target, sumArr, idx):
+        if idx == len(nums):
+            return True
+        for i in range(k):
+            if sumArr[i] + nums[idx] > target:
+                continue
+            sumArr[i] += nums[idx]
+            if self.dfs(nums, k, target, sumArr, idx+1):
+                return True
+            sumArr[i] -= nums[idx]
+        return False
+
+
+s = Solution()
+print s.canPartitionKSubsets([4, 3, 2, 3, 5, 2, 1], 4)
+
+
+

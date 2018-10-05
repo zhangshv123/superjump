@@ -11,6 +11,8 @@ Return:
     ["bat"]
 ]
 """
+时间复杂度，有n个单词，每个单词的长度是k
+nklogk
 from collections import defaultdict
 class Solution(object):
     def groupAnagrams(self, strs):
