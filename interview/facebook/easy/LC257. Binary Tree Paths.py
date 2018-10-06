@@ -1,29 +1,48 @@
-#!/usr/bin/python
-class Solution:
-	"""
-	@param root: the root of the binary tree
-	@return: all root-to-leaf paths
-	"""
+class TreeNode(object):
+	def __init__(self, x):
+		self.val = x
+		self.left = None
+		self.right = None
+		
+class Solution(object):
 	def binaryTreePaths(self, root):
-		# write your code here
-		res = []
-		
+		new_res = []
 		if not root:
-			return res
+			return new_res
+		res = self.dfs(root)
+		for path in res:
+			new_path = "->".join(path)
+			new_res.append(new_path)
+		return new_res
 		
-		if not root.left and not root.right:
-			res.append(str(root.val)) #易错点：这里是返回void
-			return res
-		
-		left_paths = self.binaryTreePaths(root.left)
-		right_paths = self.binaryTreePaths(root.right)
-		
-		for path in left_paths:
-			path = str(root.val) + "->"+path
-			res.append(path)
+	dfs的定义： 
+	叶子节点返回[[node.val]]
+	非叶子节点就是node接上所有的left和right的节点
+	def dfs(self, node):
+		if not node.left and not node.right:
+			return [[str(node.val)]]
 			
-		for path in right_paths:
-			path = str(root.val) + "->"+ path
-			res.append(path)
-			
+		res = []
+		if node.left:
+			left = self.dfs(node.left)
+			for path in left:
+				path.insert(0,str(node.val))
+				res.append(path)
+		if node.right:
+			right = self.dfs(node.right)
+			for path in right:
+				path.insert(0,str(node.val))
+				res.append(path)
 		return res
+
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+root.right.left = TreeNode(6)
+root.right.right = TreeNode(7)
+
+s = Solution()
+print s.binaryTreePaths(root) 
+
