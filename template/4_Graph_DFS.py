@@ -69,7 +69,7 @@ class Solution(object):
 	
 	def dfs(self,matrix, x, y, trie, visited, res, path): #find the next point from (x,y) to match this trie node
 		if trie.isWord:
-			res.append(path[:])
+			res.append(path[:]) #即使找到了还可以继续找下去，所以没有return
 		directions = [-1,0],[0,-1],[0,1],[1,0]
 		for direction in directions:
 			new_x = x + direction[0]
