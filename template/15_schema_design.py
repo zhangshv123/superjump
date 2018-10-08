@@ -16,7 +16,6 @@ Relationship
 id user_a user_b created_time
 
 Sharing
-
 id p_id user_id
 
 尽量不要有冗余信息

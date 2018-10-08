@@ -5,7 +5,7 @@ https://www.cs.princeton.edu/~wayne/kleinberg-tardos/pearson/04GreedyAlgorithms-
 贪心算法：永远找结束最早的放进去
 def intervalScheduling(arrs):
 	arrs.sort(key = lambda x:x[1])
-	res =[arrs[0]]
+	res = [arrs[0]]
 	i = 1
 	while i < len(arrs):
 		if arrs[i][0] < res[-1][1]:

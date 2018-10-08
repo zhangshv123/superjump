@@ -50,7 +50,7 @@ print findCluster([[0,1,0,0,0],[1,0,1,0,0],[0,1,0,0,0],[0,0,0,0,1],[0,0,0,1,0]])
 #输出[[0, 1, 2], [3, 4]]
 
 遍历/穷举模板
-def helper(m , i, path, visited, res)
+def helper(m, i, path, visited, res)
 m: input
 i: 当前节点
 path: 从起点到当前节点的路径(一般都需要pop)
