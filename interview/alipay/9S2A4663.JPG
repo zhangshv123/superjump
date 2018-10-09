@@ -1,0 +1,45 @@
+lintcode上的题目
+"""
+Definition of Interval.
+class Interval(object):
+	def __init__(self, start, end):
+		self.start = start
+		self.end = end
+"""
+
+class Solution:
+	"""
+	@param list1: one of the given list
+	@param list2: another list
+	@return: the new sorted list of interval
+	"""
+	def mergeTwoInterval(self, list1, list2):
+		res = []
+		i,j = 0,0
+		while i < len(list1) and j < len(list2):
+			if list1[i].start <= list2[j].start:
+				self.mergeToOrigin(res, list1[i])
+				i += 1
+			else:
+				self.mergeToOrigin(res, list2[j])
+				j += 1
+		while i < len(list1):
+			self.mergeToOrigin(res, list1[i])
+			i += 1
+		
+		while j < len(list2):
+			self.mergeToOrigin(res, list2[j])
+			j += 1
+			
+		return res
+	
+	
+	def mergeToOrigin(self, res, inter):
+		if len(res) == 0:
+			res.append(inter)
+			return
+		if inter.start > res[-1].end:
+			res.append(inter)
+			return
+		res[-1].end = max(res[-1].end, inter.end)
+		return
