@@ -2,7 +2,6 @@
 #input: n, m
 #n is an array of [1, 2, ..., n]
 #choose m from n,order matter
-
 def permutation(n, m):
 	res = []
 	dfs(n, m, res, [])
@@ -55,4 +54,3 @@ def dfs(nums, m, res, path):
 		path.append(i)
 		dfs(nums, m, res, path)
 		path.pop()
-

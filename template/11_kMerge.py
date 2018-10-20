@@ -10,7 +10,7 @@ def kMerge(arrs):
 		heapq.heappush(h, (arrs[i][0],i))
 	
 	while len(h) > 0:
-		cur,idx = heapq.heappop(h)
+		cur, idx = heapq.heappop(h)
 		res.append(cur)
 		if p[idx] < len(arrs[idx]):
 			heapq.heappush(h, (arrs[idx][p[idx]],idx))
