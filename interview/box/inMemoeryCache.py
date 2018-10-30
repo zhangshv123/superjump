@@ -57,13 +57,13 @@ class Solution:
 			if arr[1] in cache:
 				target = cache[arr[1]]
 				cacheInverted[target] -= 1
+			cache[arr[1]] = arr[2]
+			cacheInverted[arr[2]] += 1
 			if len(stack) > 0 and not rollback_only:
 				if arr[1] in cache:
 					stack[-1].append("set " + arr[1] + " " + target)
 				else:
 					stack[-1].append("delete " + arr[1])
-			cache[arr[1]] = arr[2]
-			cacheInverted[arr[2]] += 1
 		elif line.startswith("get"):
 			key = line.split()[1]
 			if key not in cache:
