@@ -1,4 +1,5 @@
 class Solution(object):
+	#和 tranverse graph非常类似！
 	def countComponents(self, n, edges):
 		visited = set()
 		edges.sort()
