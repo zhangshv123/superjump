@@ -13,24 +13,26 @@ For example, given n = 3, a solution set is:
 """
 #这种是top down recursion的，因为path所以空间复杂度较高，好写，但是不是最优解
 class Solution(object):
-    def traverse(self, lnum, rnum, n, path, res):
-        #base
-        if lnum + rnum == 2 * n:
-            res.append(path)
-            
-        if lnum < n:
-            self.traverse(lnum + 1, rnum, n, path + "(", res)
-        if rnum < lnum:
-            self.traverse(lnum, rnum + 1, n, path + ")", res)
-            
     def generateParenthesis(self, n):
-        """
-        :type n: int
-        :rtype: List[str]
-        """
+        left, right = n, n
         res = []
-        self.traverse(0, 0, n, "", res)
+        self.dfs(n, n, [], res)
         return res
+    
+    def dfs(self, left, right, path, res):
+        if left == 0 and right == 0:
+            res.append("".join(path[:]))
+            return
+        
+        if left > 0:
+            path.append("(")
+            self.dfs(left-1, right, path, res)
+            path.pop()
+        
+        if right > left:
+            path.append(")")
+            self.dfs(left, right-1, path, res)
+            path.pop()
 
 #用stack来做dfs
 class Solution(object):     

@@ -8,20 +8,18 @@ Compute and return the square root of x.
 """
 class Solution(object):
     def mySqrt(self, x):
-        """
-        :type x: int
-        :rtype: int
-        """
-        if x == 0:
-            return 0
-        left, right = 1, x
-        while left < right:
-            mid = left + (right - left) / 2
-            if mid <= x / mid and (mid + 1) > x / (mid + 1):
-                return mid
-            elif mid > x / mid:
-                right = mid - 1
-            else:
-                left = mid + 1
-        return left
+        if x == 1:
+            return 1
+        start, end = 0, x/2
+        while start + 1 < end:
+            mid = (start + end)/2
+            if mid * mid <= x:
+                start = mid
+            elif mid* mid > x:
+                end = mid
+        
+        if start*start <= x and end * end > x:
+            return start
+        elif end*end <=x and (end+1)*(end+1) > x:
+            return end
                 
