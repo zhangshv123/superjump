@@ -38,7 +38,8 @@ class Solution(object):
 iterative Solution
 思路：
 1.有右儿子，就找右儿子里面值最小的
-2.没有右儿子，就search找到最后一个比自己大的值
+2.没有右儿子，就search找到最后一个比自己大的值(从root往下走，每次往左拐的时候，存一下，记录最近一个看到的比p.val
+    大的node就行了)
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -53,18 +54,13 @@ class Solution(object):
             if root.val > p.val:
                 res = root
                 root = root.left
-            elif root.val < p.val:
-                root = root.right
             else:
-                break
+                root = root.right
         return res
     
-    def minValue(self, p):
-        left, right = p.val, p.val
-        if p.left:
-            left = self.minValue(p.left)
-        elif p.right:
-            right = self.minValue(p.right)
-        return min(left,right,p)
+    def minValue(self, node):
+        while node.left:
+            node = node.left
+        return node.val
 
     
