@@ -50,7 +50,7 @@ class Solution(object):
         res = None
         if p.right:
             return self.minValue(p.right)
-        while root:
+        while root: #
             if root.val > p.val:
                 res = root
                 root = root.left
@@ -62,5 +62,14 @@ class Solution(object):
         while node.left:
             node = node.left
         return node.val
+
+# 这段也可以写成
+while root != p:
+    if root.val > p.val:
+        res = root.val
+        root = root.left
+    elif root.val < p.val:
+        root = root.right
+return res
 
     

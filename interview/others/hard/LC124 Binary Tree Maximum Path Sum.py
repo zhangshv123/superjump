@@ -20,7 +20,7 @@ Return 6.
 #         self.right = None
 # 基础班视频 3._Binary_Tree__Divide_Conquer__DFS__BFS_part 2 6分钟
 class Solution(object):
-    #singlePath: 从root往下走的到任意一点的最大路径，这条路径可以不包含任何点
+    #singlePath: 从root往下走的到任意一点的最大路径，这条路径可以不包含任何点,但如果包含一定包含root
     #maxPath: 从树中任意点到任意点的最大路径，这条路径至少包含一个点 
     def maxSumToRootAndPathSum(self, root):
         if root is None:
