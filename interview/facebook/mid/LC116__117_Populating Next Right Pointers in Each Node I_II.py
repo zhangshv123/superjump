@@ -44,7 +44,7 @@ class Solution:
             return 
         if root.left != None:
             root.left.next = root.right
-            if root.next != None:
+            if root.next != None: #因为说了都是perfect binary tree所以不用判断root.right是否存在！
                 root.right.next = root.next.left
 
         self.connect(root.left)
