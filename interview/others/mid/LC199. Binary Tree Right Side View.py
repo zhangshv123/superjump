@@ -19,24 +19,24 @@ from collections import deque
 #         self.right = None
 
 #bfs
+from collections import deque
 class Solution(object):
     def rightSideView(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
-        res, level = [], deque()
-        if root != None:
-            level.append(root)
-        while len(level) > 0:
-            res.append(level[-1].val)
-            size = len(level)
-            for _ in range(size):
-                node = level.popleft()
-                if node.left != None:
-                    level.append(node.left)
-                if node.right != None:
-                    level.append(node.right)
+        res = []
+        if not root:
+            return res
+        q = deque()
+        q.append(root)
+        while len(q) > 0:
+            size = len(q)
+            for i in range(size):
+                cur = q.popleft()
+                if i == size - 1:
+                    res.append(cur.val)
+                if cur.left:
+                    q.append(cur.left)
+                if cur.right:
+                    q.append(cur.right)
         return res
 
 #topDown dfs
