@@ -36,6 +36,32 @@ II your program should return all 5 unique BST's shown below.
 #         self.val = x
 #         self.left = None
 #         self.right = None
+请参考：
+https://blog.csdn.net/fuxuemingzhu/article/details/80778651
+
+class Solution(object):
+    def generateTrees(self, n):
+        if n == 0:
+            return []
+        return self.generateBST(1, n)
+        
+    def generateBST(self, start, end):
+        if start > end:
+            return [None]
+        res = []
+        for i in range(start,end+1):
+            left_nodes = self.generateBST(start, i-1)
+            right_nodes = self.generateBST(i+1, end)
+            for left_node in left_nodes:
+                for right_node in right_nodes:
+                    root = TreeNode(i)
+                    root.left = left_node
+                    root.right = right_node
+                    res.append(root)
+        return res
+
+
+
 
 class Solution(object):
     def cloneTree(self, node, offSet):
