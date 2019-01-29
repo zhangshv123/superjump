@@ -24,17 +24,9 @@ class Solution(object):
         #dp[i]:有i个数的子问题
         for i in range(1, n + 1):
             #以j为root
-            for j in range(i + 1):
+            for j in range(1,i + 1):
                 dp[i] += dp[j - 1] * dp[i - j]
-        return dp[n]
-#niuniu version
-
-        for i in range(1,n+1):
-             #以j为root
-            for j in range(1,i+1):
-                #dp[i]:有i个数的子问题
-                dp[i] += dp[j-1]*dp[i-j]
-        return dp[n] on
+        return dp[-1]
 """
 II your program should return all 5 unique BST's shown below.
 """

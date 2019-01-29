@@ -66,9 +66,28 @@ class Codec:
                 q.append(cur.right)
                 index += 2
         return nodes[0]
-                    
-        
 
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
+见
+https://www.geeksforgeeks.org/serialize-deserialize-binary-tree/                
+follow up:
+1. 如果 tree 是 bst？(preorder 或者 postorder)
+那我们可以存 either  preorder or postorder traversal
+
+2. 如果 tree 是 complete tree：(bst做)
+complete tree是除 all levels are completely filled except possibly the last level and
+all nodes of last level are as left as possible(heap)
+level order tranversal is sufficient to store the tree
+we know the firt node is the root, next two nodes are nodes of next level. next four
+nodes are nodes of 2nd level and so on.
+
+3. 如果是 full tree:（preorder）
+full tree is a binary tree where every node has either 0 or 2 children. 
+simply store preorder tranversal and store a bit with every node to indicate whether the node
+is an internal node or a leaf node.
+
+4.general binary tree
+a simple solution is store both inorder and preorder traversals.
+this solution requires space twice the size of Binary tree. We can save space 
+by storing preorder traversal and a marker for NULL pointers.
+
+
