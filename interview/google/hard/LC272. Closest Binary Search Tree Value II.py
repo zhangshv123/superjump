@@ -23,21 +23,23 @@ class Solution(object):
 # 说明当前值更靠近目标值，则将首元素删除，末尾加上当前节点值，反之的话说明当前值比res中所有的值都更偏离目标值，
 # 由于中序遍历的特性，之后的值会更加的遍历，所以此时直接返回最终结果即可
 # http://tinyurl.com/yamoya2z
+from collections import deque
 class Solution(object):
 	def closestKValues(self, root, target, k):
-		res = []
-		inOrder(root,target,k,res)
-		return res
+		res = deque()
+		self.dfs(root, target, k, res)
+		return list(res)
 		
-	def inorder(self,root,target,k,res):
-		if not root:
+	def dfs(self, node, target, k, res):
+		if not node:
 			return
-		self.inorder(root.left,target,k,res)
+		
+		self.dfs(node.left, target, k, res)
 		if len(res) < k:
-			res.append(root.val)
-		else if abs(root.val - target) < abs(res[0] - target):
+			res.append(node.val)
+		elif abs(node.val - target) < abs(res[0] - target):
 			res.popleft()
-			res.append(root.val)
+			res.append(node.val)
 		else:
 			return
-		self.inorder(root.right,target,k,res)
+		self.dfs(node.right, target, k, res)
