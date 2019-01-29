@@ -18,6 +18,43 @@ as "[1,2,3,null,null,4,5]", just the same as how LeetCode OJ serializes a binary
 #         self.val = x
 #         self.left = None
 #         self.right = None
+
+#dfs版本
+class Codec:
+
+    def serialize(self, root):
+        res = []
+        self.dfs(root, res)
+        return "[" + ",".join(res) + "]"
+        
+    def dfs(self, node, res):
+        if not node:
+            res.append("null")
+            return
+        
+        res.append(str(node.val))
+        self.dfs(node.left, res)
+        self.dfs(node.right, res)
+        
+
+    def deserialize(self, data):
+        nodes = data[1:-1].split(",")
+        idx = [0]
+        return self.helper(nodes, idx)
+        
+        
+    def helper(self, nodes, idx):
+        if nodes[idx[0]] == "null":
+            idx[0] += 1
+            return None
+        root = TreeNode(int(nodes[idx[0]]))
+        idx[0] += 1
+        root.left = self.helper(nodes, idx)
+        root.right = self.helper(nodes, idx)
+        
+        return root
+
+#bfs版本
 from collections import deque
 class Codec:
 
