@@ -18,6 +18,41 @@ The return value is the subtree's size, which is 3.
 #         self.val = x
 #         self.left = None
 #         self.right = None
+容易理解的解法，时间复杂度(O(nlogn)), 一次检查bst/getSize为o(n), 最多重复调用o(logn)次,recursively 调用validBST方法：
+import sys
+class Solution(object):
+    def largestBSTSubtree(self, root):
+        if not root:
+            return 0
+        if self.isValidBST(root):
+            return self.getSize(root)
+        else:
+            return max(self.largestBSTSubtree(root.left), self.largestBSTSubtree(root.right))
+             
+            
+    def isValidBST(self, root):
+        return self.isInvalidRange(root, -sys.maxint, sys.maxint)
+    
+    def isInvalidRange(self, root, minValue, maxValue):
+        if not root:
+            return True
+        
+        leftIsValid= self.isInvalidRange(root.left, minValue, root.val)
+        rightIsValid = self.isInvalidRange(root.right, root.val, maxValue)
+        
+        return leftIsValid and rightIsValid and root.val > minValue and root.val < maxValue
+    
+    def getSize(self, root):
+        if not root:
+            return 0
+        if not root.left and not root.right:
+            return 1
+        return self.getSize(root.left) + self.getSize(root.right) + 1
+
+        
+
+
+
 class Solution(object):
     def helper(self, root):
         if root is None:

@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #先中序遍历，然后用heap找到最接近的K个
+时间复杂度： o(nlogn)
 class Solution(object):
 	def closestKValues(self, root, target, k):
 		heap = []
@@ -23,6 +24,7 @@ class Solution(object):
 # 说明当前值更靠近目标值，则将首元素删除，末尾加上当前节点值，反之的话说明当前值比res中所有的值都更偏离目标值，
 # 由于中序遍历的特性，之后的值会更加的遍历，所以此时直接返回最终结果即可
 # http://tinyurl.com/yamoya2z
+时间复杂度： o(n) 更快！
 from collections import deque
 class Solution(object):
 	def closestKValues(self, root, target, k):
