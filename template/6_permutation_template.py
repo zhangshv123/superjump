@@ -31,6 +31,8 @@ print permutation(3, 2)
 如果存在duplicate:
 path里面就不能存结果了,而要存index
 然后判断的时候，如果nums[i] == nums[i-1] and nums[i-1] 还没有被用过，那就不能用nums[i]
+无论 2sum, 3sum, 4sum 去重都是这样！
+
 
 def permutation(nums, m):
 	nums = sorted(nums)
