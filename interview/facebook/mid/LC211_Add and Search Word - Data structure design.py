@@ -45,26 +45,17 @@ class WordDictionary:
         cur.isWord = True
         
 
-    def search(self, word):
-        """
-        Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter.
-        :type word: str
-        :rtype: bool
-        """
-        cur = self.root
-        def dfs(cur, idx):
-            if idx == len(word):
-                return cur.isWord
-            if word[idx] == ".":
-                for child in cur.children.values():
-                    if dfs(child, idx + 1):
-                        return True
-            elif word[idx] in cur.children:
-                return dfs(cur.children[word[idx]], idx + 1)
-            return False
-        return dfs(cur, 0)
+    def dfs(self, word, idx, node):
+        if idx == len(word):
+            return node.isWord
+        if word[idx] in node.children: #这里一定需要return!不然就是空跑
+            return self.dfs(word, idx+1, node.children[word[idx]])
+        elif word[idx] == ".":
+            for key in node.children.values():
+                if self.dfs(word, idx+1, key):
+                    return True
+        return False
             
-
 # Your WordDictionary object will be instantiated and called as such:
 # obj = WordDictionary()
 # obj.addWord(word)
