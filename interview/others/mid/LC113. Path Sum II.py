@@ -24,34 +24,27 @@ return
 #         self.right = None
 最好读懂的版本
 class Solution(object):
-    def pathSum(self, root, sum):
-        """
-        :type root: TreeNode
-        :type sum: int
-        :rtype: List[List[int]]
-        """
+    def pathSum(self, root, curSum):
         res = []
         if not root:
-            return []
-        self.dfs(root, sum, [], res)
+            return res
+        self.dfs(root, [root.val], curSum - root.val, res)
         return res
         
-    def dfs(self, node, target, path, res):
-        if not node.left and not node.right and target == node.val:
-            path.append(node.val)
+    def dfs(self, node, path, curSum, res):
+        if not node.left and not node.right and curSum == 0:
             res.append(path[:])
-            path.pop()
             return
-            
+        
         if node.left:
-            path.append(node.val)
-            self.dfs(node.left, target - node.val, path, res)
+            path.append(node.left.val)
+            self.dfs(node.left, path, curSum-node.left.val, res)
             path.pop()
             
         if node.right:
-            path.append(node.val)
-            self.dfs(node.right, target - node.val, path, res)
-            path.pop()  
+            path.append(node.right.val)
+            self.dfs(node.right, path, curSum-node.right.val, res)
+            path.pop()
 
 
 class Solution(object):

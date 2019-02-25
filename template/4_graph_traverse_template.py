@@ -21,7 +21,7 @@ B - C
 D - E
 所以输出是: [(A,B,C), (D,E)]
 
-时间复杂的呀：遍历O(n)
+时间复杂度：遍历O(n)
 
 def findCluster(matrix):
 	n = len(matrix) # number of nodes
