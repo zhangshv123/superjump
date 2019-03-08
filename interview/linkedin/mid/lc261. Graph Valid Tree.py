@@ -6,6 +6,34 @@
 
 链接：https://www.jianshu.com/p/54d719cae3f4
 
+#一般能用dfs就用dfs不容易写错：
+from collections import defaultdict
+class Solution(object):
+	def validTree(self, n, edges):
+		graph = defaultdict(list)
+		visited = set()
+		visited.add(0)
+		self.buildGraph(graph, edges)
+		return self.dfs(0, None, graph, visited) and len(visited) == n
+		
+	def buildGraph(self, graph, edges): #建立邻接表
+		for edge in edges:
+			graph[edge[0]].append(edge[1])
+			graph[edge[1]].append(edge[0])
+		return
+	
+	def dfs(self, node, parent, graph, visited): 	
+		for child in graph[node]:
+			if child not in visited:
+				visited.add(child)
+				if not self.dfs(child, node, graph, visited): #只要有loop发生就直接返回false
+					return False
+			else:
+				if child != parent: #因为是无向图，所以可能是来自于parent
+					return False
+		return True
+
+
 from collections import defaultdict, deque
 class Solution(object):
 	def validTree(self, n, edges):
